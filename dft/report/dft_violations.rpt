@@ -1,0 +1,1651 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:02:23 2025
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   disp_err                     1.02           1.03          -0.01  (VIOLATED)
+       PIN :   U8/INP           1.02           1.03          -0.01  (VIOLATED)
+   k_err                        1.02           1.03          -0.01  (VIOLATED)
+       PIN :   U15/INP          1.02           1.03          -0.01  (VIOLATED)
+   pdata[5]                     1.02           1.03          -0.01  (VIOLATED)
+       PIN :   U10/INP          1.02           1.03          -0.01  (VIOLATED)
+   rdispout                     1.02           1.03          -0.01  (VIOLATED)
+       PIN :   U17/INP          1.02           1.03          -0.01  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      4                  -0.02  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   scan_en                      2.00         183.16        -181.16  (VIOLATED)
+   disp_err                     2.00          94.92         -92.92  (VIOLATED)
+   k_err                        2.00          94.92         -92.92  (VIOLATED)
+   pdata[5]                     2.00          94.92         -92.92  (VIOLATED)
+   rdispout                     2.00          94.92         -92.92  (VIOLATED)
+   n28                          2.00          90.91         -88.91  (VIOLATED)
+   n30                          2.00          90.91         -88.91  (VIOLATED)
+   n32                          2.00          90.91         -88.91  (VIOLATED)
+   n34                          2.00          90.91         -88.91  (VIOLATED)
+   transmitter/enc/ones_counter_6b[2]
+                                2.00           6.66          -4.66  (VIOLATED)
+   code_err                     2.00           5.64          -3.64  (VIOLATED)
+   kout                         2.00           5.64          -3.64  (VIOLATED)
+   pdata[0]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[1]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[2]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[3]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[4]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[6]                     2.00           5.64          -3.64  (VIOLATED)
+   pdata[7]                     2.00           5.64          -3.64  (VIOLATED)
+   data_out_s                   2.00           4.85          -2.85  (VIOLATED)
+   receiver/dec/datin_dff[0]
+                                2.00           4.85          -2.85  (VIOLATED)
+   receiver/dec/datin_dff[1]
+                                2.00           4.85          -2.85  (VIOLATED)
+   receiver/dec/datin_dff[5]
+                                2.00           4.85          -2.85  (VIOLATED)
+   receiver/dec/datin_dff[7]
+                                2.00           4.85          -2.85  (VIOLATED)
+   receiver/dec/datin_dff[9]
+                                2.00           4.85          -2.85  (VIOLATED)
+   receiver/ds/n300             2.00           4.85          -2.85  (VIOLATED)
+   receiver/n8                  2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/data_reg[1]
+                                2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/data_reg[5]
+                                2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/data_reg[6]
+                                2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/data_reg[7]
+                                2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/n105         2.00           4.85          -2.85  (VIOLATED)
+   transmitter/enc/ones_counter_4b[1]
+                                2.00           4.70          -2.70  (VIOLATED)
+   receiver/ds/n15              2.00           4.64          -2.64  (VIOLATED)
+   receiver/dec/datin_dff[8]
+                                2.00           4.60          -2.60  (VIOLATED)
+   transmitter/enc/ones_counter_6b[1]
+                                2.00           4.53          -2.53  (VIOLATED)
+   receiver/dec/out4b[0]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out4b[1]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out4b[2]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out6b[0]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out6b[1]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out6b[2]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out6b[3]        2.00           4.49          -2.49  (VIOLATED)
+   receiver/dec/out6b[4]        2.00           4.49          -2.49  (VIOLATED)
+   transmitter/enc/n82          2.00           4.45          -2.45  (VIOLATED)
+   receiver/dec/code_err2       2.00           3.86          -1.86  (VIOLATED)
+   receiver/dec/kout2           2.00           3.86          -1.86  (VIOLATED)
+   transmitter/enc/n43          2.00           3.86          -1.86  (VIOLATED)
+   transmitter/enc/controller/n86
+                                2.00           3.76          -1.76  (VIOLATED)
+   transmitter/enc/controller/n91
+                                2.00           3.76          -1.76  (VIOLATED)
+   receiver/dec/code_err1       2.00           3.66          -1.66  (VIOLATED)
+   receiver/dec/kout1           2.00           3.66          -1.66  (VIOLATED)
+   transmitter/serial/n8        2.00           3.63          -1.63  (VIOLATED)
+   transmitter/enc/controller/n6
+                                2.00           3.56          -1.56  (VIOLATED)
+   transmitter/enc/controller/n1
+                                2.00           3.54          -1.54  (VIOLATED)
+   transmitter/serial/n5        2.00           3.53          -1.53  (VIOLATED)
+   receiver/dec/ctrl/n117       2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/ctrl/n118       2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/ctrl/n119       2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_4b_3b/n148
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_4b_3b/n149
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_4b_3b/n166
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_4b_3b/n167
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_4b_3b/n168
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n648
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n649
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n651
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n652
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n653
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n654
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n655
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dec_6b_5b/n665
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n22
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n23
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n26
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n27
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n28
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n30
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n31
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n32
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n34
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_in/n35
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n17
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n22
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n23
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n24
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n25
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n27
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n28
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/dff_data_out/n29
+                                2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/n32             2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/n33             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n255             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n264             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n265             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n266             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n267             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n268             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n269             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n271             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n272             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n273             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n274             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n276             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n277             2.00           3.27          -1.27  (VIOLATED)
+   receiver/ds/n278             2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n20
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n21
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n23
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n24
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n26
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n27
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n28
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/data_ff/n29
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n20
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n25
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n26
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n27
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n29
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n30
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n31
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n33
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n34
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/dataout_ff/n35
+                                2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/n73          2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/n76          2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/n83          2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/n93          2.00           3.27          -1.27  (VIOLATED)
+   transmitter/enc/n94          2.00           3.27          -1.27  (VIOLATED)
+   transmitter/serial/n192      2.00           3.27          -1.27  (VIOLATED)
+   transmitter/serial/n201      2.00           3.27          -1.27  (VIOLATED)
+   transmitter/serial/n202      2.00           3.27          -1.27  (VIOLATED)
+   transmitter/serial/n203      2.00           3.27          -1.27  (VIOLATED)
+   transmitter/serial/n204      2.00           3.27          -1.27  (VIOLATED)
+   receiver/dec/datin_dff[2]
+                                2.00           3.24          -1.24  (VIOLATED)
+   receiver/dec/datin_dff[3]
+                                2.00           3.24          -1.24  (VIOLATED)
+   receiver/dec/datin_dff[4]
+                                2.00           3.24          -1.24  (VIOLATED)
+   receiver/dec/datin_dff[6]
+                                2.00           3.24          -1.24  (VIOLATED)
+   receiver/ds/n13              2.00           3.24          -1.24  (VIOLATED)
+   receiver/ds/n346             2.00           3.24          -1.24  (VIOLATED)
+   transmitter/enc/data_reg[0]
+                                2.00           3.24          -1.24  (VIOLATED)
+   transmitter/enc/data_reg[2]
+                                2.00           3.24          -1.24  (VIOLATED)
+   transmitter/enc/data_reg[3]
+                                2.00           3.24          -1.24  (VIOLATED)
+   transmitter/enc/data_reg[4]
+                                2.00           3.24          -1.24  (VIOLATED)
+   transmitter/enc/kin_reg      2.00           3.24          -1.24  (VIOLATED)
+   transmitter/n7               2.00           3.24          -1.24  (VIOLATED)
+   transmitter/serial/n9        2.00           3.24          -1.24  (VIOLATED)
+   transmitter/serial/n251      2.00           3.24          -1.24  (VIOLATED)
+   n15                          2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/ctrl/n111       2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/ctrl/n116       2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/ctrl/n130       2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/ctrl/n149       2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n4
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n7
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n14
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n139
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n143
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n145
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n146
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n147
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n150
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n153
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n157
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n161
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n165
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n169
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n171
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n172
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n184
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n186
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_4b_3b/n187
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n2
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n27
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n28
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n41
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n42
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n43
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n76
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n629
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n632
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n637
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n638
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n639
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n642
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n647
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n650
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n656
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n660
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n664
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n666
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n667
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n668
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n674
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n693
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n700
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n701
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n702
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n705
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n723
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n746
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n758
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n761
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n768
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n769
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n771
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n772
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n774
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n776
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n778
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n790
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n793
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n796
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n804
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n811
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n813
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n821
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n824
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n835
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n843
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n20
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n24
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n25
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n29
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n33
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n36
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n37
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n38
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_in/n39
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n15
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n16
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n18
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n19
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n20
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n21
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dff_data_out/n26
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/n29             2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/n30             2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/n31             2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/n34             2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/n35             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n44              2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n98              2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n253             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n254             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n256             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n257             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n258             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n259             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n260             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n261             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n262             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n263             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n270             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n275             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n279             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n303             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n310             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n314             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n318             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n319             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n322             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n325             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n328             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n331             2.00           3.22          -1.22  (VIOLATED)
+   receiver/ds/n334             2.00           3.22          -1.22  (VIOLATED)
+   receiver/n4                  2.00           3.22          -1.22  (VIOLATED)
+   receiver/n6                  2.00           3.22          -1.22  (VIOLATED)
+   reset_n                      2.00           3.22          -1.22  (VIOLATED)
+   test_mode                    2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n16
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n17
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n18
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n19
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n22
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/data_ff/n25
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n19
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n21
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n22
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n23
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n24
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n28
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n32
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/dataout_ff/n36
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n11
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n14
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n40
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n333
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n334
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n336
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n337
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n340
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n343
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n346
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n347
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n369
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n388
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n400
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n401
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n404
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n407
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n408
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n416
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n419
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n420
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n435
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n437
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n4
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n28
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n30
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n76
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n757
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n760
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n763
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n765
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n766
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n780
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n787
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n804
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n805
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n806
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n807
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n809
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n810
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n811
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n812
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n814
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n815
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n817
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n818
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n821
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n822
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n824
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n828
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n839
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n844
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n849
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n856
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n863
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n872
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n884
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n889
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n892
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n907
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n910
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n918
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n919
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n922
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n929
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n931
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n936
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n942
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n950
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n954
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n957
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n960
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n963
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n969
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n970
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n976
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n986
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n989
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n994
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n995
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n1001
+                                2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n55          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n62          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n65          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n69          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n71          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n72          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n74          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n75          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n77          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n80          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n81          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n84          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n86          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n87          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n91          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n92          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/n97          2.00           3.22          -1.22  (VIOLATED)
+   transmitter/n5               2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n193      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n197      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n198      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n199      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n200      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n231      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n232      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n234      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n236      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n240      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n252      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n253      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/valid            2.00           3.22          -1.22  (VIOLATED)
+   transmitter/serial/n237      2.00           3.22          -1.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n799
+                                2.00           3.22          -1.22  (VIOLATED)
+   receiver/dec/dec_6b_5b/n23
+                                2.00           3.21          -1.21  (VIOLATED)
+   receiver/dec/ctrl/n146       2.00           3.20          -1.20  (VIOLATED)
+   receiver/dec/ctrl/n153       2.00           3.20          -1.20  (VIOLATED)
+   receiver/dec/dec_6b_5b/n763
+                                2.00           3.19          -1.19  (VIOLATED)
+   receiver/dec/dec_6b_5b/n784
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n777
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n972
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/controller/n98
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n16
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n354
+                                2.00           3.19          -1.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n803
+                                2.00           3.19          -1.19  (VIOLATED)
+   receiver/dec/dec_6b_5b/n844
+                                2.00           3.17          -1.17  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n841
+                                2.00           3.17          -1.17  (VIOLATED)
+   receiver/dec/dec_6b_5b/n759
+                                2.00           3.15          -1.15  (VIOLATED)
+   n17                          2.00           3.14          -1.14  (VIOLATED)
+   n18                          2.00           3.14          -1.14  (VIOLATED)
+   n19                          2.00           3.14          -1.14  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n971
+                                2.00           3.14          -1.14  (VIOLATED)
+   receiver/dec/ctrl/n12        2.00           3.13          -1.13  (VIOLATED)
+   receiver/dec/ctrl/n124       2.00           3.13          -1.13  (VIOLATED)
+   receiver/dec/ctrl/n142       2.00           3.13          -1.13  (VIOLATED)
+   receiver/dec/ctrl/n152       2.00           3.13          -1.13  (VIOLATED)
+   receiver/dec/dec_4b_3b/n176
+                                2.00           3.13          -1.13  (VIOLATED)
+   receiver/dec/dec_6b_5b/n812
+                                2.00           3.13          -1.13  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n393
+                                2.00           3.13          -1.13  (VIOLATED)
+   transmitter/dataout_10b[0]
+                                2.00           3.12          -1.12  (VIOLATED)
+   transmitter/dataout_10b[1]
+                                2.00           3.12          -1.12  (VIOLATED)
+   transmitter/enc/controller/n17
+                                2.00           3.11          -1.11  (VIOLATED)
+   receiver/dec/dec_6b_5b/n830
+                                2.00           3.10          -1.10  (VIOLATED)
+   transmitter/serial/n243      2.00           3.10          -1.10  (VIOLATED)
+   transmitter/dataout_10b[3]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[4]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[5]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[6]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[7]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[8]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/dataout_10b[9]
+                                2.00           3.09          -1.09  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n363
+                                2.00           3.08          -1.08  (VIOLATED)
+   receiver/dec/dec_6b_5b/n781
+                                2.00           3.08          -1.08  (VIOLATED)
+   receiver/ds/n17              2.00           3.08          -1.08  (VIOLATED)
+   receiver/ds/n341             2.00           3.08          -1.08  (VIOLATED)
+   receiver/dec/dec_6b_5b/n73
+                                2.00           3.07          -1.07  (VIOLATED)
+   receiver/dec/dec_6b_5b/n691
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n34
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n414
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n9
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n34
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n78
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n867
+                                2.00           3.07          -1.07  (VIOLATED)
+   transmitter/serial/n216      2.00           3.07          -1.07  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n795
+                                2.00           3.05          -1.05  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n897
+                                2.00           3.05          -1.05  (VIOLATED)
+   receiver/dec/dec_6b_5b/n842
+                                2.00           3.05          -1.05  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n23
+                                2.00           3.04          -1.04  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n398
+                                2.00           3.04          -1.04  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n3
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n98
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n798
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n899
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n898
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/ctrl/n5         2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/ctrl/n9         2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/ctrl/n123       2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/ctrl/n145       2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_6b_5b/n752
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/ds/n296             2.00           3.03          -1.03  (VIOLATED)
+   transmitter/serial/n245      2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_4b_3b/n179
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_6b_5b/n720
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_6b_5b/n837
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_6b_5b/n838
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/ds/n321             2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n375
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n415
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n426
+                                2.00           3.03          -1.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n847
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/dec_6b_5b/n806
+                                2.00           3.03          -1.03  (VIOLATED)
+   receiver/dec/ctrl/n1         2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/ctrl/n6         2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/ctrl/n10        2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/ctrl/n134       2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/dec_4b_3b/n5
+                                2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/dec_6b_5b/n800
+                                2.00           3.01          -1.01  (VIOLATED)
+   transmitter/serial/n235      2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/dec_6b_5b/n750
+                                2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/dec_6b_5b/n760
+                                2.00           3.01          -1.01  (VIOLATED)
+   receiver/dec/dec_6b_5b/n38
+                                2.00           3.00          -1.00  (VIOLATED)
+   receiver/dec/dec_6b_5b/n690
+                                2.00           3.00          -1.00  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n926
+                                2.00           3.00          -1.00  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n755
+                                2.00           3.00          -1.00  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n775
+                                2.00           3.00          -1.00  (VIOLATED)
+   receiver/dec/dec_6b_5b/n831
+                                2.00           3.00          -1.00  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n27
+                                2.00           2.99          -0.99  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n946
+                                2.00           2.99          -0.99  (VIOLATED)
+   receiver/ds/n342             2.00           2.99          -0.99  (VIOLATED)
+   receiver/dec/dec_6b_5b/n9
+                                2.00           2.99          -0.99  (VIOLATED)
+   receiver/dec/dec_6b_5b/n66
+                                2.00           2.99          -0.99  (VIOLATED)
+   receiver/ds/n330             2.00           2.99          -0.99  (VIOLATED)
+   receiver/ds/n338             2.00           2.99          -0.99  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n984
+                                2.00           2.99          -0.99  (VIOLATED)
+   transmitter/serial/n242      2.00           2.99          -0.99  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n382
+                                2.00           2.99          -0.99  (VIOLATED)
+   transmitter/enc/n78          2.00           2.99          -0.99  (VIOLATED)
+   transmitter/serial/n238      2.00           2.99          -0.99  (VIOLATED)
+   receiver/dec/dec_6b_5b/n762
+                                2.00           2.98          -0.98  (VIOLATED)
+   receiver/dec/dec_6b_5b/n756
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n805
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n11
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n18
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n640
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n721
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n754
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n773
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n9
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n6
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n12
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n16
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n22
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n81
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n768
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n891
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n914
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n978
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n997
+                                2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/n63          2.00           2.97          -0.97  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n900
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n810
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n845
+                                2.00           2.97          -0.97  (VIOLATED)
+   receiver/dec/dec_6b_5b/n686
+                                2.00           2.96          -0.96  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n373
+                                2.00           2.96          -0.96  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n348
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n377
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n69
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n774
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n865
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_4b_3b/n11
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_4b_3b/n158
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_4b_3b/n164
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_6b_5b/n635
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_6b_5b/n728
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_6b_5b/n808
+                                2.00           2.95          -0.95  (VIOLATED)
+   receiver/dec/dec_6b_5b/n828
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n46
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n366
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n829
+                                2.00           2.95          -0.95  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n6
+                                2.00           2.94          -0.94  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n26
+                                2.00           2.94          -0.94  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n837
+                                2.00           2.94          -0.94  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n940
+                                2.00           2.94          -0.94  (VIOLATED)
+   receiver/ds/n315             2.00           2.94          -0.94  (VIOLATED)
+   receiver/ds/n316             2.00           2.94          -0.94  (VIOLATED)
+   receiver/ds/n317             2.00           2.94          -0.94  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n61
+                                2.00           2.93          -0.93  (VIOLATED)
+   receiver/dec/dec_6b_5b/n684
+                                2.00           2.92          -0.92  (VIOLATED)
+   receiver/dec/dec_6b_5b/n685
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n362
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n2
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n751
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n797
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n941
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n992
+                                2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/n88          2.00           2.92          -0.92  (VIOLATED)
+   transmitter/serial/n222      2.00           2.92          -0.92  (VIOLATED)
+   transmitter/serial/n224      2.00           2.92          -0.92  (VIOLATED)
+   transmitter/serial/n241      2.00           2.92          -0.92  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n985
+                                2.00           2.92          -0.92  (VIOLATED)
+   receiver/dec/dec_4b_3b/n156
+                                2.00           2.92          -0.92  (VIOLATED)
+   receiver/dec/dec_6b_5b/n3
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n6
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n15
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n39
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n85
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n87
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n88
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n683
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n692
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n822
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/ds/n335             2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n342
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n65
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n82
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n846
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n905
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n932
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n973
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/n56          2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/n66          2.00           2.91          -0.91  (VIOLATED)
+   transmitter/serial/n223      2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n945
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n903
+                                2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n930
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/dec_6b_5b/n14
+                                2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/ctrl/n3         2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/ctrl/n8         2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/ctrl/n11        2.00           2.91          -0.91  (VIOLATED)
+   receiver/dec/ctrl/n19        2.00           2.91          -0.91  (VIOLATED)
+   receiver/ds/n28              2.00           2.91          -0.91  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n759
+                                2.00           2.90          -0.90  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n762
+                                2.00           2.90          -0.90  (VIOLATED)
+   transmitter/serial/n230      2.00           2.90          -0.90  (VIOLATED)
+   receiver/ds/n324             2.00           2.90          -0.90  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n911
+                                2.00           2.90          -0.90  (VIOLATED)
+   receiver/dec/dec_6b_5b/n841
+                                2.00           2.90          -0.90  (VIOLATED)
+   receiver/dec/dec_6b_5b/n751
+                                2.00           2.90          -0.90  (VIOLATED)
+   transmitter/serial/n228      2.00           2.89          -0.89  (VIOLATED)
+   receiver/dec/ctrl/n115       2.00           2.89          -0.89  (VIOLATED)
+   receiver/dec/ctrl/n144       2.00           2.89          -0.89  (VIOLATED)
+   receiver/dec/dec_6b_5b/n45
+                                2.00           2.89          -0.89  (VIOLATED)
+   receiver/dec/dec_6b_5b/n725
+                                2.00           2.89          -0.89  (VIOLATED)
+   receiver/dec/dec_6b_5b/n737
+                                2.00           2.89          -0.89  (VIOLATED)
+   transmitter/serial/n19       2.00           2.89          -0.89  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n396
+                                2.00           2.89          -0.89  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n756
+                                2.00           2.89          -0.89  (VIOLATED)
+   n23                          2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[0]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[1]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[2]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[3]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[4]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[5]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[6]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[7]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/datin[8]            2.00           2.88          -0.88  (VIOLATED)
+   receiver/dec/disp_err_dff
+                                2.00           2.88          -0.88  (VIOLATED)
+   receiver/dec/ctrl/n17        2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/ctrl/n136       2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/ctrl/n137       2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/ctrl/n140       2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/ctrl/n141       2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/ctrl/n148       2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/dec_4b_3b/n175
+                                2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/dec_4b_3b/n190
+                                2.00           2.87          -0.87  (VIOLATED)
+   receiver/dec/dec_6b_5b/n739
+                                2.00           2.87          -0.87  (VIOLATED)
+   receiver/ds/n308             2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n385
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n394
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n413
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n31
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n877
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n948
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n949
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n953
+                                2.00           2.87          -0.87  (VIOLATED)
+   transmitter/enc/ones_counter_4b[0]
+                                2.00           2.87          -0.87  (VIOLATED)
+   receiver/ds/n8               2.00           2.86          -0.86  (VIOLATED)
+   rdispout_trans               2.00           2.86          -0.86  (VIOLATED)
+   receiver/dec/dec_6b_5b/n672
+                                2.00           2.86          -0.86  (VIOLATED)
+   receiver/dec/dec_6b_5b/n803
+                                2.00           2.86          -0.86  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n4
+                                2.00           2.86          -0.86  (VIOLATED)
+   receiver/dec/dec_6b_5b/n1
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_6b_5b/n731
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n18              2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n25              2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n27              2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n283             2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n284             2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n285             2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n286             2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n287             2.00           2.85          -0.85  (VIOLATED)
+   receiver/ds/n288             2.00           2.85          -0.85  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n773
+                                2.00           2.85          -0.85  (VIOLATED)
+   transmitter/enc/n90          2.00           2.85          -0.85  (VIOLATED)
+   transmitter/serial/n210      2.00           2.85          -0.85  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n920
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_4b_3b/n162
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_4b_3b/n181
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_6b_5b/n8
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_6b_5b/n661
+                                2.00           2.85          -0.85  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n8
+                                2.00           2.85          -0.85  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n794
+                                2.00           2.85          -0.85  (VIOLATED)
+   receiver/dec/dec_4b_3b/n178
+                                2.00           2.84          -0.84  (VIOLATED)
+   receiver/dec/dec_4b_3b/n189
+                                2.00           2.84          -0.84  (VIOLATED)
+   receiver/dec/dec_6b_5b/n671
+                                2.00           2.83          -0.83  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n364
+                                2.00           2.83          -0.83  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n421
+                                2.00           2.83          -0.83  (VIOLATED)
+   receiver/dec/dec_6b_5b/n834
+                                2.00           2.82          -0.82  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n981
+                                2.00           2.81          -0.81  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n987
+                                2.00           2.81          -0.81  (VIOLATED)
+   transmitter/serial/n194      2.00           2.81          -0.81  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n991
+                                2.00           2.81          -0.81  (VIOLATED)
+   receiver/dec/dec_4b_3b/n1
+                                2.00           2.81          -0.81  (VIOLATED)
+   receiver/dec/dec_6b_5b/n12
+                                2.00           2.81          -0.81  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n427
+                                2.00           2.81          -0.81  (VIOLATED)
+   receiver/dec/dec_6b_5b/n823
+                                2.00           2.79          -0.79  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n423
+                                2.00           2.79          -0.79  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n895
+                                2.00           2.78          -0.78  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n977
+                                2.00           2.78          -0.78  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n968
+                                2.00           2.78          -0.78  (VIOLATED)
+   receiver/dec/dec_6b_5b/n669
+                                2.00           2.78          -0.78  (VIOLATED)
+   receiver/dec/dec_6b_5b/n670
+                                2.00           2.78          -0.78  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n397
+                                2.00           2.78          -0.78  (VIOLATED)
+   receiver/dec/dec_6b_5b/n624
+                                2.00           2.77          -0.77  (VIOLATED)
+   receiver/ds/n16              2.00           2.77          -0.77  (VIOLATED)
+   receiver/ds/n320             2.00           2.77          -0.77  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n888
+                                2.00           2.77          -0.77  (VIOLATED)
+   transmitter/serial/n195      2.00           2.77          -0.77  (VIOLATED)
+   receiver/dec/dec_6b_5b/n827
+                                2.00           2.77          -0.77  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n927
+                                2.00           2.77          -0.77  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n15
+                                2.00           2.76          -0.76  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n923
+                                2.00           2.76          -0.76  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n990
+                                2.00           2.76          -0.76  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n365
+                                2.00           2.76          -0.76  (VIOLATED)
+   receiver/dec/dec_4b_3b/n183
+                                2.00           2.76          -0.76  (VIOLATED)
+   receiver/dec/dec_6b_5b/n78
+                                2.00           2.75          -0.75  (VIOLATED)
+   receiver/dec/dec_6b_5b/n682
+                                2.00           2.75          -0.75  (VIOLATED)
+   receiver/dec/dec_6b_5b/n689
+                                2.00           2.75          -0.75  (VIOLATED)
+   receiver/ds/n280             2.00           2.75          -0.75  (VIOLATED)
+   receiver/dec/dec_4b_3b/n191
+                                2.00           2.75          -0.75  (VIOLATED)
+   transmitter/serial/n219      2.00           2.75          -0.75  (VIOLATED)
+   receiver/dec/dec_6b_5b/n809
+                                2.00           2.74          -0.74  (VIOLATED)
+   receiver/dec/dec_4b_3b/n185
+                                2.00           2.74          -0.74  (VIOLATED)
+   receiver/dec/dec_6b_5b/n681
+                                2.00           2.74          -0.74  (VIOLATED)
+   receiver/dec/dec_6b_5b/n832
+                                2.00           2.74          -0.74  (VIOLATED)
+   receiver/ds/n7               2.00           2.74          -0.74  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n429
+                                2.00           2.74          -0.74  (VIOLATED)
+   transmitter/enc/n79          2.00           2.74          -0.74  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n12
+                                2.00           2.73          -0.73  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n961
+                                2.00           2.73          -0.73  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n338
+                                2.00           2.72          -0.72  (VIOLATED)
+   transmitter/serial/n214      2.00           2.72          -0.72  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n361
+                                2.00           2.72          -0.72  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n767
+                                2.00           2.72          -0.72  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n890
+                                2.00           2.72          -0.72  (VIOLATED)
+   receiver/dec/dec_6b_5b/n795
+                                2.00           2.72          -0.72  (VIOLATED)
+   receiver/dec/dec_6b_5b/n798
+                                2.00           2.72          -0.72  (VIOLATED)
+   receiver/dec/dec_6b_5b/n815
+                                2.00           2.72          -0.72  (VIOLATED)
+   receiver/dec/dec_6b_5b/n818
+                                2.00           2.72          -0.72  (VIOLATED)
+   receiver/dec/dec_6b_5b/n819
+                                2.00           2.72          -0.72  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n938
+                                2.00           2.72          -0.72  (VIOLATED)
+   transmitter/serial/n205      2.00           2.71          -0.71  (VIOLATED)
+   receiver/ds/n327             2.00           2.70          -0.70  (VIOLATED)
+   transmitter/serial/n247      2.00           2.70          -0.70  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n901
+                                2.00           2.69          -0.69  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n430
+                                2.00           2.69          -0.69  (VIOLATED)
+   transmitter/enc/controller/n94
+                                2.00           2.69          -0.69  (VIOLATED)
+   receiver/dec/dec_4b_3b/n170
+                                2.00           2.69          -0.69  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n384
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n428
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/serial/n239      2.00           2.67          -0.67  (VIOLATED)
+   receiver/dec/dec_4b_3b/n159
+                                2.00           2.67          -0.67  (VIOLATED)
+   receiver/dec/dec_4b_3b/n160
+                                2.00           2.67          -0.67  (VIOLATED)
+   receiver/dec/dec_6b_5b/n787
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n790
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n345
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n937
+                                2.00           2.67          -0.67  (VIOLATED)
+   transmitter/serial/n246      2.00           2.67          -0.67  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n988
+                                2.00           2.66          -0.66  (VIOLATED)
+   receiver/dec/dec_6b_5b/n741
+                                2.00           2.66          -0.66  (VIOLATED)
+   receiver/dec/dec_6b_5b/n742
+                                2.00           2.66          -0.66  (VIOLATED)
+   receiver/dec/dec_6b_5b/n794
+                                2.00           2.66          -0.66  (VIOLATED)
+   receiver/dec/dec_6b_5b/n816
+                                2.00           2.66          -0.66  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n764
+                                2.00           2.66          -0.66  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n958
+                                2.00           2.66          -0.66  (VIOLATED)
+   receiver/dec/dec_4b_3b/n3
+                                2.00           2.65          -0.65  (VIOLATED)
+   receiver/dec/dec_4b_3b/n192
+                                2.00           2.65          -0.65  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n405
+                                2.00           2.65          -0.65  (VIOLATED)
+   transmitter/serial/n226      2.00           2.65          -0.65  (VIOLATED)
+   receiver/dec/dec_6b_5b/n743
+                                2.00           2.63          -0.63  (VIOLATED)
+   receiver/dec/dec_6b_5b/n745
+                                2.00           2.62          -0.62  (VIOLATED)
+   receiver/dec/dec_4b_3b/n18
+                                2.00           2.62          -0.62  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n772
+                                2.00           2.62          -0.62  (VIOLATED)
+   transmitter/serial/n227      2.00           2.62          -0.62  (VIOLATED)
+   receiver/dec/dec_6b_5b/n10
+                                2.00           2.61          -0.61  (VIOLATED)
+   receiver/dec/dec_6b_5b/n644
+                                2.00           2.61          -0.61  (VIOLATED)
+   receiver/dec/dec_6b_5b/n646
+                                2.00           2.61          -0.61  (VIOLATED)
+   receiver/dec/dec_6b_5b/n748
+                                2.00           2.61          -0.61  (VIOLATED)
+   receiver/dec/dec_6b_5b/n797
+                                2.00           2.61          -0.61  (VIOLATED)
+   receiver/ds/n20              2.00           2.61          -0.61  (VIOLATED)
+   receiver/ds/n22              2.00           2.61          -0.61  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n19
+                                2.00           2.61          -0.61  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n20
+                                2.00           2.61          -0.61  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n955
+                                2.00           2.61          -0.61  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n956
+                                2.00           2.61          -0.61  (VIOLATED)
+   transmitter/serial/n248      2.00           2.60          -0.60  (VIOLATED)
+   transmitter/enc/controller/n97
+                                2.00           2.60          -0.60  (VIOLATED)
+   transmitter/enc/controller/n99
+                                2.00           2.60          -0.60  (VIOLATED)
+   receiver/dec/dec_6b_5b/n740
+                                2.00           2.59          -0.59  (VIOLATED)
+   receiver/dec/dec_6b_5b/n715
+                                2.00           2.59          -0.59  (VIOLATED)
+   receiver/dec/dec_4b_3b/n188
+                                2.00           2.58          -0.58  (VIOLATED)
+   receiver/dec/dec_6b_5b/n679
+                                2.00           2.58          -0.58  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n344
+                                2.00           2.58          -0.58  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n412
+                                2.00           2.57          -0.57  (VIOLATED)
+   transmitter/serial/n30       2.00           2.56          -0.56  (VIOLATED)
+   receiver/dec/dec_6b_5b/n829
+                                2.00           2.56          -0.56  (VIOLATED)
+   receiver/ds/n339             2.00           2.56          -0.56  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n944
+                                2.00           2.56          -0.56  (VIOLATED)
+   receiver/ds/n311             2.00           2.56          -0.56  (VIOLATED)
+   receiver/ds/n309             2.00           2.55          -0.55  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n801
+                                2.00           2.55          -0.55  (VIOLATED)
+   receiver/dec/dec_6b_5b/n744
+                                2.00           2.55          -0.55  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n431
+                                2.00           2.54          -0.54  (VIOLATED)
+   receiver/dec/dec_6b_5b/n802
+                                2.00           2.53          -0.53  (VIOLATED)
+   receiver/dec/dec_6b_5b/n780
+                                2.00           2.53          -0.53  (VIOLATED)
+   transmitter/enc/n67          2.00           2.52          -0.52  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n771
+                                2.00           2.52          -0.52  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n887
+                                2.00           2.51          -0.51  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n417
+                                2.00           2.51          -0.51  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n770
+                                2.00           2.51          -0.51  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n47
+                                2.00           2.50          -0.50  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n943
+                                2.00           2.50          -0.50  (VIOLATED)
+   receiver/ds/n323             2.00           2.50          -0.50  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n791
+                                2.00           2.50          -0.50  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n422
+                                2.00           2.50          -0.50  (VIOLATED)
+   receiver/ds/n307             2.00           2.49          -0.49  (VIOLATED)
+   receiver/dec/dec_6b_5b/n840
+                                2.00           2.49          -0.49  (VIOLATED)
+   receiver/ds/n336             2.00           2.48          -0.48  (VIOLATED)
+   receiver/ds/n337             2.00           2.48          -0.48  (VIOLATED)
+   transmitter/enc/dataout_4b[0]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_4b[1]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_4b[2]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_4b[3]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[0]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[1]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[2]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[3]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[4]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/dataout_6b[5]
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n356
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/dec/dec_6b_5b/n801
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n418
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/dec/dec_6b_5b/n747
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/dec/dec_4b_3b/n2
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/dec/dec_4b_3b/n177
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/dec/ctrl/n128       2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n381
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n883
+                                2.00           2.47          -0.47  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n964
+                                2.00           2.47          -0.47  (VIOLATED)
+   receiver/ds/n313             2.00           2.46          -0.46  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n424
+                                2.00           2.46          -0.46  (VIOLATED)
+   receiver/dec/dec_6b_5b/n786
+                                2.00           2.45          -0.45  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n360
+                                2.00           2.45          -0.45  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n409
+                                2.00           2.45          -0.45  (VIOLATED)
+   transmitter/enc/n64          2.00           2.45          -0.45  (VIOLATED)
+   transmitter/serial/n196      2.00           2.44          -0.44  (VIOLATED)
+   receiver/dec/dec_4b_3b/n17
+                                2.00           2.43          -0.43  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n908
+                                2.00           2.43          -0.43  (VIOLATED)
+   receiver/dec/ctrl/n122       2.00           2.41          -0.41  (VIOLATED)
+   transmitter/enc/disparity_6b[1]
+                                2.00           2.41          -0.41  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n332
+                                2.00           2.41          -0.41  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n894
+                                2.00           2.41          -0.41  (VIOLATED)
+   transmitter/serial/n221      2.00           2.40          -0.40  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n980
+                                2.00           2.40          -0.40  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n769
+                                2.00           2.40          -0.40  (VIOLATED)
+   receiver/ds/n340             2.00           2.40          -0.40  (VIOLATED)
+   transmitter/serial/n209      2.00           2.39          -0.39  (VIOLATED)
+   receiver/dec/ctrl/n121       2.00           2.38          -0.38  (VIOLATED)
+   transmitter/enc/disparity_6b[2]
+                                2.00           2.38          -0.38  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n331
+                                2.00           2.38          -0.38  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n886
+                                2.00           2.38          -0.38  (VIOLATED)
+   receiver/ds/n29              2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n339
+                                2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n16        2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n112       2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n113       2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n114       2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n127       2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n155       2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/dec_4b_3b/n154
+                                2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/dec_4b_3b/n163
+                                2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/dec_6b_5b/n659
+                                2.00           2.36          -0.36  (VIOLATED)
+   receiver/ds/n204             2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n335
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n353
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n395
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n788
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n848
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n893
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n939
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n951
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/ones_counter_6b[0]
+                                2.00           2.36          -0.36  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n350
+                                2.00           2.36          -0.36  (VIOLATED)
+   receiver/dec/ctrl/n138       2.00           2.35          -0.35  (VIOLATED)
+   receiver/dec/ctrl/n150       2.00           2.35          -0.35  (VIOLATED)
+   receiver/ds/n326             2.00           2.35          -0.35  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n793
+                                2.00           2.35          -0.35  (VIOLATED)
+   transmitter/serial/n225      2.00           2.34          -0.34  (VIOLATED)
+   receiver/dec/dec_6b_5b/n677
+                                2.00           2.34          -0.34  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n358
+                                2.00           2.32          -0.32  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n802
+                                2.00           2.29          -0.29  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n359
+                                2.00           2.28          -0.28  (VIOLATED)
+   receiver/ds/n332             2.00           2.26          -0.26  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n789
+                                2.00           2.25          -0.25  (VIOLATED)
+   transmitter/enc/controller/n95
+                                2.00           2.24          -0.24  (VIOLATED)
+   receiver/dec/dec_6b_5b/n820
+                                2.00           2.24          -0.24  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n349
+                                2.00           2.24          -0.24  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n406
+                                2.00           2.23          -0.23  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n843
+                                2.00           2.23          -0.23  (VIOLATED)
+   transmitter/enc/n96          2.00           2.23          -0.23  (VIOLATED)
+   receiver/dec/dec_6b_5b/n676
+                                2.00           2.23          -0.23  (VIOLATED)
+   transmitter/serial/n40       2.00           2.22          -0.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n40
+                                2.00           2.22          -0.22  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n792
+                                2.00           2.22          -0.22  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n357
+                                2.00           2.21          -0.21  (VIOLATED)
+   transmitter/enc/controller/n88
+                                2.00           2.20          -0.20  (VIOLATED)
+   receiver/dec/dec_6b_5b/n680
+                                2.00           2.20          -0.20  (VIOLATED)
+   receiver/dec/dec_6b_5b/n678
+                                2.00           2.19          -0.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n35
+                                2.00           2.19          -0.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n878
+                                2.00           2.19          -0.19  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n881
+                                2.00           2.19          -0.19  (VIOLATED)
+   transmitter/enc/controller/n83
+                                2.00           2.19          -0.19  (VIOLATED)
+   receiver/dec/dec_6b_5b/n735
+                                2.00           2.16          -0.16  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n874
+                                2.00           2.16          -0.16  (VIOLATED)
+   transmitter/enc/controller/n89
+                                2.00           2.14          -0.14  (VIOLATED)
+   transmitter/enc/controller/n84
+                                2.00           2.09          -0.09  (VIOLATED)
+   transmitter/enc/controller/n96
+                                2.00           2.09          -0.09  (VIOLATED)
+   receiver/dec/dec_6b_5b/n788
+                                2.00           2.06          -0.06  (VIOLATED)
+   transmitter/enc/controller/n92
+                                2.00           2.06          -0.06  (VIOLATED)
+   receiver/dec/dec_6b_5b/n734
+                                2.00           2.04          -0.04  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n785
+                                2.00           2.04          -0.04  (VIOLATED)
+   receiver/dec/dec_6b_5b/n7
+                                2.00           2.04          -0.04  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n842
+                                2.00           2.04          -0.04  (VIOLATED)
+   transmitter/enc/enc_inst_3b/n355
+                                2.00           2.03          -0.03  (VIOLATED)
+   transmitter/enc/enc_inst_5b/n786
+                                2.00           2.03          -0.03  (VIOLATED)
+   transmitter/enc/n99          2.00           2.03          -0.03  (VIOLATED)
+   transmitter/enc/n100         2.00           2.03          -0.03  (VIOLATED)
+   receiver/dec/ctrl/n120       2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/ctrl/n151       2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n25
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n630
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n634
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n657
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n658
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n675
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n724
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n729
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n791
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n792
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n817
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/dec/dec_6b_5b/n826
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/ds/n282             2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/ds/n306             2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   receiver/ds/n333             2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_3b/n329
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_3b/n379
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n7
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n758
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n761
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n784
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n831
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n836
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n838
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n840
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n845
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n852
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n855
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n857
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n858
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n873
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n876
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n879
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n885
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n909
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/enc/enc_inst_5b/n924
+                                2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/serial/n10       2.00           2.00           0.00  (VIOLATED: increase significant digits)
+   transmitter/serial/n218      2.00           2.00           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      952             -1844.79  
+
+1

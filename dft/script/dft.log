@@ -1,0 +1,847 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/ICer/.synopsys_dv_prefs.tcl
+set LIB_PATH "/home/ICer/Downloads/Lib/synopsys/models"
+/home/ICer/Downloads/Lib/synopsys/models
+set NETLIST_PATH "/home/ICer/SerDes/synthesis/output"
+/home/ICer/SerDes/synthesis/output
+set LIB_NAME "saed90nm_max.db"
+saed90nm_max.db
+lappend search_path "$LIB_PATH"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models
+lappend search_path "$NETLIST_PATH"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models /home/ICer/SerDes/synthesis/output
+set worst_case "$LIB_NAME"
+saed90nm_max.db
+set num 5
+5
+set_app_var target_library [list $worst_case]
+saed90nm_max.db
+set_app_var link_library "* $target_library"
+* saed90nm_max.db
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work
+1
+remove_design -all
+1
+set design SerDes
+SerDes
+set_svf ${design}.svf
+1
+read_ddc ${design}.ddc
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_max'
+  Loading link library 'gtech'
+Reading ddc file '/home/ICer/SerDes/synthesis/output/SerDes.ddc'.
+Loaded 25 designs.
+Current design is 'system'.
+system mux2to1_1 mux2to1_0 transmitter receiver serializer encoder decoder deserializer dff_enc_0 dff_enc_WIDTH8 dff_enc_WIDTH10 enc_3b enc_5b control_enc dff_width10 dff_width1_0 dec4b dec6b dff_width8 control mux2to1_2 dff_enc_1 dff_enc_2 dff_width1_1
+read_sdc ${design}.sdc
+
+Reading SDC version 2.1...
+Current design is 'system'.
+Current design is 'system'.
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Clock group fun_sclk_1 already defines the relationship for the given set of clocks. (TIM-196)
+1
+link
+
+  Linking design 'system'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /home/ICer/SerDes/synthesis/output/SerDes.ddc, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+1
+current_design
+Current design is 'system'.
+{system}
+set_scan_configuration -chain_count $num  -style multiplexed_flip_flop  -clock_mixing no_mix
+Accepted scan configuration for modes: all_dft
+1
+set_dft_signal -view existing_dft   -port [get_ports scan_clk] -type ScanClock -timing {45 55} 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view existing_dft   -port [get_ports scan_rst] -type Reset -active 0
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -view existing_dft   -port [get_ports test_mode] -type TestMode -active 1
+Accepted dft signal specification for modes: all_dft
+1
+create_port scan_en -direction in
+Creating port 'scan_en' in design 'system'.
+1
+set_dft_signal -view spec -port [get_ports scan_en] -active 1 -type ScanEnable
+Accepted dft signal specification for modes: all_dft
+1
+for {set i 1} {$i<[expr $num+1]} {incr i} {
+create_port scan_in_$i -direction in
+set_dft_signal -view spec -port [get_ports scan_in_$i] -type ScanDataIn
+
+create_port scan_out_$i -direction out
+set_dft_signal -view spec -port [get_ports scan_out_$i] -type ScanDataOut
+}
+Creating port 'scan_in_1' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_out_1' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_in_2' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_out_2' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_in_3' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_out_3' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_in_4' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_out_4' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_in_5' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+Creating port 'scan_out_5' in design 'system'.
+Accepted dft signal specification for modes: all_dft
+create_test_protocol
+In mode: all_dft...
+
+Information: Starting test protocol creation. (TEST-219)
+  ...reading user specified clock signals...
+Information: Identified system/test clock port scan_clk (45.0,55.0). (TEST-265)
+  ...reading user specified asynchronous signals...
+Information: Identified active low asynchronous control port scan_rst. (TEST-266)
+Warning: The output strobe for the mode is '40.000000'.
+         The output strobe inferred from the waveform table '_default_WFT_' is -1.000000.
+The output strobe will be updated
+
+1
+set_dft_insertion_configuration -preserve_design_name true -synthesis_optimization none
+Accepted insert_dft configuration specification.
+1
+source ../cons/cons.tcl
+Warning: Clock group fun_sclk_1 already defines the relationship for the given set of clocks. (TIM-196)
+Current design is 'system'.
+1
+set_fix_multiple_port_nets -all -buffer_constants
+1
+link
+
+  Linking design 'system'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (25 designs)              /home/ICer/SerDes/synthesis/output/SerDes.ddc, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+1
+compile -scan -map_effort medium
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 13 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: The nextstate or clock_on object of the test_cell definition of the library cell 'SDFFSSRX2' has scan pins. (OPT-1209)
+Warning: The nextstate or clock_on object of the test_cell definition of the library cell 'SDFFSSRX1' has scan pins. (OPT-1209)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'deserializer'
+  Processing 'control'
+  Processing 'dff_width8'
+  Processing 'dff_width1_1'
+  Processing 'dec6b'
+  Processing 'dec4b'
+  Processing 'dff_width10'
+  Processing 'decoder'
+  Processing 'receiver'
+  Processing 'control_enc'
+  Processing 'enc_5b'
+  Processing 'enc_3b'
+  Processing 'dff_enc_WIDTH10'
+  Processing 'dff_enc_WIDTH8'
+  Processing 'dff_enc_1'
+  Processing 'encoder'
+  Processing 'serializer'
+  Processing 'transmitter'
+  Processing 'mux2to1_0'
+  Processing 'mux2to1_2'
+  Processing 'system'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    7476.9      0.00       0.0    2287.9                          
+    0:00:01    7476.9      0.00       0.0    2287.9                          
+    0:00:01    7476.9      0.00       0.0    2287.9                          
+    0:00:01    7476.9      0.00       0.0    2287.9                          
+    0:00:01    7476.9      0.00       0.0    2287.9                          
+    0:00:01    6627.2      0.00       0.0    1299.4                          
+    0:00:01    6627.2      0.00       0.0    1299.4                          
+    0:00:01    6627.2      0.00       0.0    1299.4                          
+    0:00:01    6627.2      0.00       0.0    1299.4                          
+    0:00:01    6627.2      0.00       0.0    1299.4                          
+    0:00:03    6612.5      0.00       0.0    1292.5                          
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+    0:00:04    6607.0      0.00       0.0    1291.2                          
+    0:00:04    6590.4      0.00       0.0    1286.4                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04    6590.4      0.00       0.0    1286.4                          
+    0:00:04    6887.1      0.00       0.0    1246.0 receiver/ds/n15          
+    0:00:04    7118.4      0.00       0.0    1217.6 transmitter/enc/kin_ff/q[0]
+    0:00:05    7455.7      0.00       0.0    1191.5 receiver/dec/dec_6b_5b/n42
+    0:00:05    7699.0      0.00       0.0    1174.6 transmitter/enc/enc_inst_5b/net2533
+    0:00:05    8139.6      0.00       0.0    1152.7 transmitter/enc/enc_inst_5b/n13
+    0:00:05    8471.3      0.00       0.0    1131.2 receiver/dec/dec_6b_5b/n76
+    0:00:05    8907.3      0.00       0.0    1115.2 transmitter/serial/net2399
+    0:00:05    9290.6      0.00       0.0    1106.2 receiver/dec/dec_6b_5b/n90
+    0:00:05    9706.3      0.00       0.0    1097.8 transmitter/enc/enc_inst_5b/net2468
+    0:00:05   10178.2      0.00       0.0    1077.6 transmitter/enc/enc_inst_5b/n95
+    0:00:05   10614.1      0.00       0.0    1055.8 transmitter/enc/enc_inst_3b/n16
+    0:00:05   10844.5      0.00       0.0    1046.2 transmitter/enc/controller/n1
+    0:00:05   11130.2      0.00       0.0    1039.0 transmitter/enc/enc_inst_5b/n86
+    0:00:05   11307.1      0.00       0.0    1034.8 transmitter/enc/enc_inst_3b/net2786
+    0:00:05   11332.0      0.00       0.0    1032.8 transmitter/enc/enc_inst_5b/net3787
+    0:00:05   11356.0      0.00       0.0    1031.7 transmitter/enc/enc_inst_5b/net3634
+    0:00:05   11351.3      0.00       0.0    1029.9 transmitter/enc/enc_inst_5b/net3424
+    0:00:05   11331.1      0.00       0.0    1029.0 transmitter/enc/enc_inst_5b/net3093
+    0:00:05   11293.3      0.00       0.0    1028.1 transmitter/enc/enc_inst_5b/net2903
+    0:00:06   11272.1      0.00       0.0    1027.4 transmitter/enc/enc_inst_5b/net2739
+    0:00:06   11254.6      0.00       0.0    1027.0 transmitter/enc/enc_inst_5b/net2621
+    0:00:06   11249.0      0.00       0.0    1026.2 transmitter/enc/enc_inst_5b/net2467
+    0:00:06   11216.8      0.00       0.0    1025.2 transmitter/enc/enc_inst_5b/net1645
+    0:00:06   11203.9      0.00       0.0    1023.2 receiver/dec/ctrl/net3342
+    0:00:06   11191.9      0.00       0.0    1022.3 receiver/dec/dec_6b_5b/net3719
+    0:00:06   11236.1      0.00       0.0    1018.8 receiver/dec/dec_6b_5b/net3190
+    0:00:06   11208.5      0.00       0.0    1017.8 receiver/dec/dec_6b_5b/n27
+    0:00:06   11169.8      0.00       0.0    1017.3 receiver/dec/dec_6b_5b/net2912
+    0:00:06   11167.9      0.00       0.0    1016.6 receiver/dec/dec_6b_5b/net3956
+    0:00:06   11134.8      0.00       0.0    1016.5 receiver/dec/dec_6b_5b/net3123
+    0:00:06   11109.0      0.00       0.0    1014.3 transmitter/enc/enc_inst_3b/net3578
+    0:00:06   11085.0      0.00       0.0    1010.6 transmitter/enc/enc_inst_3b/net2960
+    0:00:06   11055.5      0.00       0.0    1009.8 transmitter/enc/enc_inst_3b/dataout[2]
+    0:00:06   11038.9      0.00       0.0    1009.6 transmitter/serial/net3667
+    0:00:06   11016.8      0.00       0.0    1008.3 transmitter/serial/net2513
+    0:00:06   11003.9      0.00       0.0    1006.4 receiver/ds/net3039      
+    0:00:06   10970.7      0.00       0.0    1005.9 receiver/ds/net2519      
+    0:00:06   10909.9      0.00       0.0    1005.7 receiver/dec/dec_4b_3b/n14
+    0:00:06   10885.9      0.00       0.0    1004.4 receiver/dec/dec_6b_5b/n23
+    0:00:06   10869.4      0.00       0.0    1003.2 receiver/dec/dec_6b_5b/net3800
+    0:00:07   10900.7      0.00       0.0    1000.1 transmitter/enc/enc_inst_5b/n23
+    0:00:07   10904.4      0.00       0.0     999.0 transmitter/serial/net2399
+    0:00:07   10943.1      0.00       0.0     997.1 transmitter/enc/enc_inst_5b/n68
+    0:00:07   10993.8      0.00       0.0     994.2 receiver/ds/n28          
+    0:00:07   10990.1      0.00       0.0     993.5 receiver/dec/dec_6b_5b/net4070
+    0:00:07   10916.4      0.00       0.0     993.0 receiver/ds/net3239      
+    0:00:07   10910.8      0.00       0.0     992.4 receiver/dec/dec_6b_5b/net2836
+    0:00:07   10920.0      0.00       0.0     991.1 transmitter/serial/net3772
+    0:00:07   10873.0      0.00       0.0     990.8 transmitter/enc/enc_inst_5b/net3632
+    0:00:07   10873.0      0.00       0.0     989.7 transmitter/enc/k_err_ff/q[0]
+    0:00:07   10884.1      0.00       0.0     989.3 receiver/dec/dec_6b_5b/n55
+    0:00:07   10876.7      0.00       0.0     988.9 transmitter/enc/enc_inst_5b/n26
+    0:00:07   10882.3      0.00       0.0     987.1 receiver/dec/dec_6b_5b/n54
+    0:00:07   10860.1      0.00       0.0     987.1 transmitter/enc/enc_inst_5b/n20
+    0:00:07   10821.4      0.00       0.0     986.1 receiver/dec/ctrl/net3503
+    0:00:07   10827.0      0.00       0.0     986.1 receiver/dec/dec_4b_3b/net3172
+    0:00:07   10803.0      0.00       0.0     985.5 transmitter/enc/enc_inst_5b/net2611
+    0:00:08   10827.0      0.00       0.0     984.6 transmitter/enc/enc_inst_5b/n68
+    0:00:08   10830.6      0.00       0.0     983.6 receiver/dec/dec_6b_5b/net2835
+    0:00:08   10816.8      0.00       0.0     983.4 transmitter/enc/enc_inst_3b/net2746
+    0:00:08   10818.7      0.00       0.0     983.2 receiver/dec/dec_4b_3b/net2417
+    0:00:08   10837.1      0.00       0.0     981.9 receiver/ds/net3249      
+    0:00:08   10831.6      0.00       0.0     980.6 transmitter/enc/enc_inst_3b/net3302
+    0:00:08   10827.9      0.00       0.0     979.7 transmitter/serial/n38   
+    0:00:08   10878.6      0.00       0.0     978.8 transmitter/enc/enc_inst_5b/n74
+    0:00:08   10883.2      0.00       0.0     977.9 transmitter/enc/enc_inst_3b/net3017
+    0:00:08   10883.2      0.00       0.0     977.3 transmitter/enc/enc_inst_5b/net3259
+    0:00:08   10868.4      0.00       0.0     975.3 transmitter/enc/enc_inst_5b/net3635
+    0:00:08   10896.1      0.00       0.0     972.1 receiver/dec/dec_6b_5b/n25
+    0:00:08   10907.1      0.00       0.0     971.0 test_mode                
+    0:00:08   10906.2      0.00       0.0     970.2 transmitter/enc/data_ff/q[5]
+    0:00:08   10905.3      0.00       0.0     969.0 receiver/dec/dff_data_in/q[7]
+    0:00:08   10912.7      0.00       0.0     967.6 transmitter/enc/controller/net3348
+    0:00:09   10937.5      0.00       0.0     965.6 transmitter/enc/enc_inst_5b/net3881
+    0:00:09   10942.2      0.00       0.0     965.5 receiver/dec/ctrl/n19    
+    0:00:09   10955.1      0.00       0.0     965.0 transmitter/enc/net2303  
+    0:00:09   10935.7      0.00       0.0     964.8 transmitter/enc/enc_inst_5b/net3521
+    0:00:09   10933.9      0.00       0.0     964.8 transmitter/enc/enc_inst_5b/net2609
+    0:00:09   10944.9      0.00       0.0     964.5 receiver/dec/dec_6b_5b/net4354
+    0:00:09   10928.3      0.00       0.0     963.9 transmitter/enc/enc_inst_3b/net4327
+    0:00:09   10933.9      0.00       0.0     963.3 transmitter/serial/net2535
+    0:00:09   10934.8      0.00       0.0     963.0 receiver/ds/net2519      
+    0:00:09   10933.9      0.00       0.0     962.4 receiver/dec/ctrl/net4391
+    0:00:09   10944.0      0.00       0.0     961.8 transmitter/enc/enc_inst_3b/n16
+    0:00:09   10944.0      0.00       0.0     961.5 receiver/ds/net3041      
+    0:00:09   10958.7      0.00       0.0     961.1 receiver/ds/net4061      
+    0:00:09   10947.7      0.00       0.0     960.9 receiver/dec/dec_4b_3b/net3614
+    0:00:09   10926.5      0.00       0.0     960.4 receiver/dec/dec_6b_5b/net4336
+    0:00:10   10936.6      0.00       0.0     960.1 transmitter/enc/enc_inst_5b/n61
+    0:00:10   10931.1      0.00       0.0     959.5 receiver/dec/dec_4b_3b/n18
+    0:00:10   10919.1      0.00       0.0     959.4 receiver/dec/ctrl/net3338
+    0:00:10   10915.4      0.00       0.0     959.1 receiver/dec/dec_4b_3b/net2416
+    0:00:10   10922.8      0.00       0.0     958.4 transmitter/enc/enc_inst_5b/net2880
+    0:00:10   10922.8      0.00       0.0     958.0 transmitter/enc/enc_inst_3b/net2410
+    0:00:10   10960.6      0.00       0.0     957.6 transmitter/serial/n36   
+    0:00:10   10949.5      0.00       0.0     956.6 receiver/ds/n45          
+    0:00:10   10938.5      0.00       0.0     956.6 transmitter/serial/net4415
+    0:00:10   10949.5      0.00       0.0     956.3 receiver/dec/dec_6b_5b/net3160
+    0:00:10   10938.5      0.00       0.0     956.3 receiver/dec/dec_6b_5b/net2374
+    0:00:10   10932.0      0.00       0.0     955.8 transmitter/enc/enc_inst_5b/net3727
+    0:00:10   10932.0      0.00       0.0     955.7 receiver/dec/dec_6b_5b/net2833
+    0:00:10   10952.3      0.00       0.0     955.0 transmitter/enc/enc_inst_5b/net4051
+    0:00:10   10944.0      0.00       0.0     954.9 transmitter/enc/enc_inst_5b/n40
+    0:00:10   10921.9      0.00       0.0     954.6 receiver/dec/ctrl/net3284
+    0:00:10   10898.8      0.00       0.0     954.6 transmitter/enc/data_ff/q[5]
+    0:00:11   11154.1      0.00       0.0     937.9 receiver/dec/dec_6b_5b/net4488
+    0:00:11   11391.9      0.00       0.0     923.4 receiver/dec/dec_4b_3b/datin[2]
+    0:00:11   11551.3      0.00       0.0     911.7 rst_mux/net4438          
+    0:00:11   11733.8      0.00       0.0     901.5 receiver/dec/dec_6b_5b/datin[5]
+    0:00:11   11849.9      0.00       0.0     892.1 receiver/dec/dff_data_in/net4514
+    0:00:11   11982.6      0.00       0.0     882.8 receiver/dec/dff_data_in/net4511
+    0:00:11   12126.4      0.00       0.0     873.6 receiver/dec/dff_data_out/net4468
+    0:00:11   12231.5      0.00       0.0     868.2 transmitter/enc/net4559  
+    0:00:11   12292.3      0.00       0.0     864.3 transmitter/enc/enc_inst_3b/net4593
+    0:00:11   12380.8      0.00       0.0     858.7 receiver/dec/dec_6b_5b/net4602
+    0:00:11   12436.1      0.00       0.0     855.6 transmitter/enc/enc_inst_3b/net4596
+    0:00:11   12541.1      0.00       0.0     850.7 transmitter/enc/enc_inst_5b/net4627
+    0:00:11   12602.0      0.00       0.0     848.5 receiver/dec/dec_6b_5b/net4603
+    0:00:12   12618.5      0.00       0.0     847.5 receiver/dec/ctrl/net3907
+    0:00:12   12613.0      0.00       0.0     847.5 transmitter/enc/net5180  
+    0:00:12   12585.4      0.00       0.0     847.5 receiver/dec/dff_data_in/net4906
+    0:00:12   12574.3      0.00       0.0     847.1 transmitter/enc/enc_inst_5b/net5186
+    0:00:12   12557.7      0.00       0.0     846.7 transmitter/enc/enc_inst_5b/net2609
+    0:00:12   12535.6      0.00       0.0     846.2 receiver/dec/dff_data_out/net4758
+    0:00:12   12530.1      0.00       0.0     846.2 receiver/dec/dec_6b_5b/net4846
+    0:00:12   12513.5      0.00       0.0     846.0 receiver/dec/dec_6b_5b/net2687
+    0:00:12   12508.0      0.00       0.0     846.0 transmitter/net4972      
+    0:00:12   12485.8      0.00       0.0     846.0 receiver/dec/dec_4b_3b/net4784
+    0:00:12   12485.8      0.00       0.0     845.7 transmitter/enc/enc_inst_3b/net4681
+    0:00:12   12496.9      0.00       0.0     845.4 receiver/dec/dec_6b_5b/net4988
+    0:00:13   12496.9      0.00       0.0     844.9 transmitter/enc/enc_inst_5b/rdispin
+    0:00:13   12508.0      0.00       0.0     844.4 transmitter/serial/net4726
+    0:00:13   12519.0      0.00       0.0     844.1 receiver/dec/dec_6b_5b/net5235
+    0:00:13   12507.0      0.00       0.0     844.0 transmitter/enc/controller/rdispin
+    0:00:14   12507.0      0.00       0.0     844.0 transmitter/enc/enc_inst_3b/net4720
+    0:00:14   12507.0      0.00       0.0     843.9 transmitter/enc/enc_inst_3b/net4553
+    0:00:14   12507.0      0.00       0.0     843.8 transmitter/enc/controller/net3350
+    0:00:19   12507.0      0.00       0.0     843.7                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:19   12507.0      0.00       0.0     843.7                          
+    0:00:19   12507.0      0.00       0.0     843.7                          
+    0:00:19   12437.0      0.00       0.0     843.7                          
+    0:00:19   12425.9      0.00       0.0     843.6                          
+    0:00:19   12425.9      0.00       0.0     843.6                          
+    0:00:19   12425.9      0.00       0.0     843.6                          
+    0:00:19   12425.9      0.00       0.0     843.6                          
+    0:00:19   12425.9      0.00       0.0     843.6                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12417.6      0.00       0.0     843.8                          
+    0:00:19   12428.7      0.00       0.0     843.8                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+#DFT DRC
+dft_drc -verbose
+In mode: all_dft...
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 78 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *  78 cells are valid scan cells
+         transmitter/serial/data_out_reg
+         transmitter/serial/counter_reg[1]
+         transmitter/serial/counter_reg[0]
+         transmitter/serial/counter_reg[2]
+         transmitter/serial/counter_reg[3]
+         transmitter/enc/valid_reg
+         transmitter/enc/counter_reg
+         receiver/ds/datout_reg[1]
+         receiver/ds/datout_reg[7]
+         receiver/ds/datout_reg[8]
+         receiver/ds/datout_reg[0]
+         receiver/ds/datout_reg[9]
+         receiver/ds/datout_reg[5]
+         receiver/ds/datout_reg[4]
+         receiver/ds/bit_count_reg[3]
+         receiver/ds/datout_reg[2]
+         receiver/ds/datout_reg[6]
+         receiver/ds/datout_reg[3]
+         receiver/ds/bit_count_reg[1]
+         receiver/ds/bit_count_reg[2]
+         receiver/ds/bit_count_reg[0]
+         transmitter/enc/kin_ff/q_reg[0]
+         transmitter/enc/data_ff/q_reg[7]
+         transmitter/enc/data_ff/q_reg[0]
+         transmitter/enc/data_ff/q_reg[6]
+         transmitter/enc/data_ff/q_reg[5]
+         transmitter/enc/data_ff/q_reg[2]
+         transmitter/enc/data_ff/q_reg[3]
+         transmitter/enc/data_ff/q_reg[4]
+         transmitter/enc/data_ff/q_reg[1]
+         transmitter/enc/dataout_ff/q_reg[9]
+         transmitter/enc/dataout_ff/q_reg[8]
+         transmitter/enc/dataout_ff/q_reg[7]
+         transmitter/enc/dataout_ff/q_reg[6]
+         transmitter/enc/dataout_ff/q_reg[5]
+         transmitter/enc/dataout_ff/q_reg[4]
+         transmitter/enc/dataout_ff/q_reg[3]
+         transmitter/enc/dataout_ff/q_reg[2]
+         transmitter/enc/dataout_ff/q_reg[1]
+         transmitter/enc/dataout_ff/q_reg[0]
+         receiver/dec/dff_data_in/q_reg[6]
+         receiver/dec/dff_data_in/q_reg[2]
+         receiver/dec/dff_data_in/q_reg[3]
+         receiver/dec/dff_data_in/q_reg[1]
+         receiver/dec/dff_data_in/q_reg[9]
+         receiver/dec/dff_data_in/q_reg[7]
+         receiver/dec/dff_data_in/q_reg[5]
+         receiver/dec/dff_data_in/q_reg[4]
+         receiver/dec/dff_data_in/q_reg[8]
+         receiver/dec/dff_data_in/q_reg[0]
+         receiver/dec/dff_rdispin/q_reg[0]
+         receiver/dec/dec_4b_3b/code_err1_reg
+         receiver/dec/dec_4b_3b/kout1_reg
+         receiver/dec/dec_4b_3b/datout_reg[1]
+         receiver/dec/dec_4b_3b/datout_reg[0]
+         receiver/dec/dec_4b_3b/datout_reg[2]
+         receiver/dec/dec_6b_5b/kout2_reg
+         receiver/dec/dec_6b_5b/datout_reg[3]
+         receiver/dec/dec_6b_5b/datout_reg[2]
+         receiver/dec/dec_6b_5b/datout_reg[1]
+         receiver/dec/dec_6b_5b/code_err2_reg
+         receiver/dec/dec_6b_5b/disp_err_reg
+         receiver/dec/dec_6b_5b/datout_reg[4]
+         receiver/dec/dec_6b_5b/datout_reg[0]
+         receiver/dec/dff_data_out/q_reg[6]
+         receiver/dec/dff_data_out/q_reg[5]
+         receiver/dec/dff_data_out/q_reg[3]
+         receiver/dec/dff_data_out/q_reg[2]
+         receiver/dec/dff_data_out/q_reg[1]
+         receiver/dec/dff_data_out/q_reg[0]
+         receiver/dec/dff_data_out/q_reg[4]
+         receiver/dec/dff_data_out/q_reg[7]
+         receiver/dec/ctrl/kout_reg
+         receiver/dec/ctrl/code_err_reg
+         receiver/dec/ctrl/rdispout_reg
+         transmitter/enc/curr_dis_ff/q_reg[0]
+         transmitter/enc/k_err_ff/q_reg[0]
+         receiver/dec/dff_disp_err/q_reg[0]
+
+Information: Test design rule checking completed. (TEST-123)
+1
+preview_dft -show all
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+
+****************************************
+Preview_dft report
+For    : 'Insert_dft' command
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:02:19 2025
+****************************************
+
+Number of chains: 5
+Scan methodology: full_scan
+Scan style: multiplexed_flip_flop
+Clock domain: no_mix
+Scan enable: scan_en (no hookup pin)
+
+  (l) shows cell scan-out drives a lockup latch
+  (s) shows cell is a scan segment
+  (t) shows cell has a true scan attribute
+  (w) shows cell scan-out drives a wire
+
+
+Scan chain '1' (scan_in_1 --> scan_out_1) contains 16 cells:
+
+  receiver/dec/ctrl/code_err_reg (scan_clk, 45.0, rising) 
+  receiver/dec/ctrl/kout_reg    
+  receiver/dec/dec_4b_3b/code_err1_reg
+  receiver/dec/dec_4b_3b/datout_reg[0]
+  receiver/dec/dec_4b_3b/datout_reg[1]
+  receiver/dec/dec_4b_3b/datout_reg[2]
+  receiver/dec/dec_4b_3b/kout1_reg
+  receiver/dec/dec_6b_5b/code_err2_reg
+  receiver/dec/dec_6b_5b/datout_reg[0]
+  receiver/dec/dec_6b_5b/datout_reg[1]
+  receiver/dec/dec_6b_5b/datout_reg[2]
+  receiver/dec/dec_6b_5b/datout_reg[3]
+  receiver/dec/dec_6b_5b/datout_reg[4]
+  receiver/dec/dec_6b_5b/disp_err_reg
+  receiver/dec/dec_6b_5b/kout2_reg
+  receiver/dec/ctrl/rdispout_reg
+
+  Scan signals:
+    test_scan_in: scan_in_1 (no hookup pin)
+    test_scan_out: scan_out_1 (no hookup pin)
+
+
+Scan chain '2' (scan_in_2 --> scan_out_2) contains 16 cells:
+
+  receiver/dec/dff_data_in/q_reg[0] (scan_clk, 45.0, rising) 
+  receiver/dec/dff_data_in/q_reg[1]
+  receiver/dec/dff_data_in/q_reg[2]
+  receiver/dec/dff_data_in/q_reg[3]
+  receiver/dec/dff_data_in/q_reg[4]
+  receiver/dec/dff_data_in/q_reg[5]
+  receiver/dec/dff_data_in/q_reg[6]
+  receiver/dec/dff_data_in/q_reg[7]
+  receiver/dec/dff_data_in/q_reg[8]
+  receiver/dec/dff_data_in/q_reg[9]
+  receiver/dec/dff_data_out/q_reg[0]
+  receiver/dec/dff_data_out/q_reg[1]
+  receiver/dec/dff_data_out/q_reg[2]
+  receiver/dec/dff_data_out/q_reg[3]
+  receiver/dec/dff_data_out/q_reg[4]
+  receiver/dec/dff_data_out/q_reg[5]
+
+  Scan signals:
+    test_scan_in: scan_in_2 (no hookup pin)
+    test_scan_out: scan_out_2 (no hookup pin)
+
+
+Scan chain '3' (scan_in_3 --> scan_out_3) contains 16 cells:
+
+  receiver/dec/dff_data_out/q_reg[6] (scan_clk, 45.0, rising) 
+  receiver/dec/dff_data_out/q_reg[7]
+  receiver/dec/dff_rdispin/q_reg[0]
+  receiver/ds/bit_count_reg[0]  
+  receiver/ds/bit_count_reg[1]  
+  receiver/ds/bit_count_reg[2]  
+  receiver/ds/bit_count_reg[3]  
+  receiver/ds/datout_reg[0]     
+  receiver/ds/datout_reg[1]     
+  receiver/ds/datout_reg[2]     
+  receiver/ds/datout_reg[3]     
+  receiver/ds/datout_reg[4]     
+  receiver/ds/datout_reg[5]     
+  receiver/ds/datout_reg[6]     
+  receiver/ds/datout_reg[7]     
+  receiver/dec/dff_disp_err/q_reg[0]
+
+  Scan signals:
+    test_scan_in: scan_in_3 (no hookup pin)
+    test_scan_out: scan_out_3 (no hookup pin)
+
+
+Scan chain '4' (scan_in_4 --> scan_out_4) contains 15 cells:
+
+  receiver/ds/datout_reg[8]     (scan_clk, 45.0, rising) 
+  receiver/ds/datout_reg[9]     
+  transmitter/enc/counter_reg   
+  transmitter/enc/curr_dis_ff/q_reg[0]
+  transmitter/enc/data_ff/q_reg[0]
+  transmitter/enc/data_ff/q_reg[1]
+  transmitter/enc/data_ff/q_reg[2]
+  transmitter/enc/data_ff/q_reg[3]
+  transmitter/enc/data_ff/q_reg[4]
+  transmitter/enc/data_ff/q_reg[5]
+  transmitter/enc/data_ff/q_reg[6]
+  transmitter/enc/data_ff/q_reg[7]
+  transmitter/enc/dataout_ff/q_reg[0]
+  transmitter/enc/dataout_ff/q_reg[1]
+  transmitter/enc/dataout_ff/q_reg[2]
+
+  Scan signals:
+    test_scan_in: scan_in_4 (no hookup pin)
+    test_scan_out: scan_out_4 (no hookup pin)
+
+
+Scan chain '5' (scan_in_5 --> scan_out_5) contains 15 cells:
+
+  transmitter/enc/dataout_ff/q_reg[3] (scan_clk, 45.0, rising) 
+  transmitter/enc/dataout_ff/q_reg[4]
+  transmitter/enc/dataout_ff/q_reg[5]
+  transmitter/enc/dataout_ff/q_reg[6]
+  transmitter/enc/dataout_ff/q_reg[7]
+  transmitter/enc/dataout_ff/q_reg[8]
+  transmitter/enc/dataout_ff/q_reg[9]
+  transmitter/enc/kin_ff/q_reg[0]
+  transmitter/enc/valid_reg     
+  transmitter/serial/counter_reg[0]
+  transmitter/serial/counter_reg[1]
+  transmitter/serial/counter_reg[2]
+  transmitter/serial/counter_reg[3]
+  transmitter/serial/data_out_reg
+  transmitter/enc/k_err_ff/q_reg[0]
+
+  Scan signals:
+    test_scan_in: scan_in_5 (no hookup pin)
+    test_scan_out: scan_out_5 (no hookup pin)
+
+
+****************************************
+
+No user-defined segments
+
+
+No multibit segments
+
+
+****************************************
+
+No cells have scan true
+
+No cells have scan false
+
+
+No tristate nets.
+
+No bidirectionals.
+
+
+************ Test Point Plan Report ************
+Total number of test points  : 0
+Number of Autofix test points: 0
+Number of Wrapper test points: 0
+Number of test modes         : 0
+Number of test point enables : 0
+Number of data sources       : 0
+Number of data sinks         : 0
+**************************************************
+
+1
+insert_dft
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+  Routing Scan Chains
+  Routing Global Signals
+  Mapping New Logic
+Resetting current test mode
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:21   12522.7      0.00       0.0    1305.3                          
+    0:00:21   12616.7      0.00       0.0    1485.2                          
+    0:00:21   12710.7      0.00       0.0    1665.0                          
+    0:00:21   12804.7      0.00       0.0    1844.8                          
+
+1
+dft_drc
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 78 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *  78 cells are valid scan cells
+
+Information: Test design rule checking completed. (TEST-123)
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Tue Aug 26 08:02:20 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Unconnected ports (LINT-28)                                     1
+
+Cells                                                               1
+    Connected to power or ground (LINT-32)                          1
+--------------------------------------------------------------------------------
+
+Warning: In design 'control_enc', port 'valid' is not connected to any nets. (LINT-28)
+Warning: In design 'encoder', a pin on submodule 'enc_inst_3b' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'disparity_6b[0]' is connected to logic 0. 
+1
+report_timing > ../report/dft_timing.rpt
+dft_drc -coverage_estimate > ../report/rpt_dft.drc_coverage
+dft_drc > ../report/drc.rpt
+report_area > ../report/dft_area.rpt
+report_qor > ../report/dft_qor.rpt
+report_constraint -all_violators  > ../report/dft_violations.rpt
+report_scan_path -chain all > ../report/scan_chains.rpt
+report_dft_signal -view existing_dft  > ../report/dft_existing_dft.rpt
+report_dft_signal -view spec > ../report/dft_spec.rpt
+# ################################## #
+# ============ Outputs ============= #
+# ################################## #
+set verilogout_no_tri	 true
+true
+set verilogout_equation  false
+false
+write -format ddc  -hierarchy -output ../output/${design}.ddc
+Writing ddc file '../output/SerDes.ddc'.
+1
+write -format verilog  -hierarchy -output ../output/${design}.v
+Writing verilog file '/home/ICer/SerDes/dft/output/SerDes.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 1 nets to module encoder using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_test_model -output ../output/${design}.ctl
+Writing test model file '/home/ICer/SerDes/dft/output/SerDes.ctl'...
+Writing ddc file '/home/ICer/SerDes/dft/output/SerDes.ctl'.
+1
+write_sdc ../output/${design}.sdc 
+1
+# ---- SPF_File (STIL Protcol File) ---- # 
+write_test_protocol -out ../output/${design}.spf
+Writing test protocol file '/home/ICer/SerDes/dft/output/SerDes.spf' for mode 'Internal_scan'...
+1
+# ---- SDF_File (Standard Delay Format) ---- # 
+write_sdf  ../output/${design}.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/ICer/SerDes/dft/output/SerDes.sdf'. (WT-3)
+1
+# ---- def_File (reorder scan chains placment step) ---- #
+write_scan_def -output ../output/${design}.def
+1
+set_svf -off
+1
+set_case_analysis 0 test_mode
+1
+1
+dc_shell> 

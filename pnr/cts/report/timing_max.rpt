@@ -1,0 +1,57 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+        -nosplit
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:26:47 2025
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[5] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.77      0.77
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.77 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.85      1.61 f
+  receiver/ds/U88/ZN (INVX0)                       0.12      1.73 r
+  receiver/ds/U90/ZN (INVX0)                       0.15      1.89 f
+  receiver/ds/U118/Q (OA21X1)                      0.33      2.22 f
+  receiver/ds/U72/ZN (INVX0)                       0.12      2.34 r
+  receiver/ds/U73/ZN (INVX0)                       0.10      2.45 f
+  receiver/ds/U119/QN (NOR2X0)                     0.11      2.56 r
+  receiver/ds/U103/ZN (INVX0)                      0.13      2.69 f
+  receiver/ds/U105/ZN (INVX0)                      0.12      2.81 r
+  receiver/ds/U39/Q (AND3X1)                       0.35      3.16 r
+  receiver/ds/U43/Q (AND2X1)                       0.26      3.42 r
+  receiver/ds/U46/QN (OAI22X1)                     0.41      3.83 f
+  receiver/ds/datout_reg[5]/D (SDFFARX1)           0.00      3.83 f
+  data arrival time                                          3.83
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (propagated)                 0.76     25.76
+  clock reconvergence pessimism                    0.01     25.77
+  receiver/ds/datout_reg[5]/CLK (SDFFARX1)         0.00     25.77 r
+  clock uncertainty                               -0.10     25.67
+  library setup time                              -0.51     25.16
+  data required time                                        25.16
+  ------------------------------------------------------------------------
+  data required time                                        25.16
+  data arrival time                                         -3.83
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.33
+
+
+1

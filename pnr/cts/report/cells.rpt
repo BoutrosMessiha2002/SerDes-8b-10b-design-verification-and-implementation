@@ -1,0 +1,72 @@
+****************************************
+Report : cell
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:26:47 2025
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model
+    U - Unbound (missing)
+    s - user size_only
+    S - implicit size_only
+    d - user dont_touch
+    D - derived dont_touch
+    o - synthetic operator
+
+
+Cell                      Reference       Library          Attributes
+--------------------------------------------------------------------------------
+CTS_scan_clk_btd328       NBUFFX2         saed90nm_max     
+PLACE_optlc_6865          TIEL            saed90nm_max     
+PLACE_optlc_6866          TIEL            saed90nm_max     
+PLACE_optlc_6867          TIEL            saed90nm_max     
+PLACE_optlc_6868          TIEL            saed90nm_max     
+PLACE_optlc_6869          TIEL            saed90nm_max     
+PLACE_optlc_6870          TIEL            saed90nm_max     
+PLACE_optlc_6871          TIEL            saed90nm_max     
+PLACE_optlc_6872          TIEL            saed90nm_max     
+PLACE_optlc_6873          TIEL            saed90nm_max     
+PLACE_optlc_6874          TIEL            saed90nm_max     
+PLACE_optlc_6875          TIEL            saed90nm_max     
+PLACE_optlc_6876          TIEL            saed90nm_max     
+PLACE_optlc_6877          TIEL            saed90nm_max     
+PLACE_optlc_6878          TIEL            saed90nm_max     
+PLACE_optlc_6879          TIEL            saed90nm_max     
+PLACE_optlc_6880          TIEL            saed90nm_max     
+PLACE_optlc_6882          TIEH            saed90nm_max     
+PLACE_optlc_6883          TIEH            saed90nm_max     
+SpareCell_0               NAND2X2         saed90nm_max     d
+SpareCell_0_0             INVX1           saed90nm_max     d
+SpareCell_0_1             INVX1           saed90nm_max     d
+SpareCell_0_2             INVX1           saed90nm_max     d
+SpareCell_0_3             INVX1           saed90nm_max     d
+SpareCell_0_4             INVX1           saed90nm_max     d
+SpareCell_1               NAND2X2         saed90nm_max     d
+SpareCell_2               NAND2X2         saed90nm_max     d
+SpareCell_3               NAND2X2         saed90nm_max     d
+SpareCell_4               NAND2X2         saed90nm_max     d
+U1                        NBUFFX2         saed90nm_max     
+U12                       INVX0           saed90nm_max     
+U13                       INVX0           saed90nm_max     
+U14                       INVX0           saed90nm_max     
+U2                        NBUFFX2         saed90nm_max     
+U3                        INVX0           saed90nm_max     
+U4                        INVX0           saed90nm_max     
+U5                        INVX0           saed90nm_max     
+U6                        INVX0           saed90nm_max     
+U7                        INVX0           saed90nm_max     
+pclk_mux                  mux2to1_2                        h
+receiver                  receiver                         h
+rst_mux                   mux2to1_0                        h
+sclk_mux                  mux2to1_1                        h
+transmitter               transmitter                      h
+--------------------------------------------------------------------------------
+Total 44 cells
+
+1

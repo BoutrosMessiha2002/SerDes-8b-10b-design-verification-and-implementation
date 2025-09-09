@@ -1,0 +1,114 @@
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN system ;
+
+SCANCHAINS 5 ;
+
+- 1
++ START PIN scan_in_1
++ FLOATING receiver/dec/ctrl/code_err_reg ( IN SI ) ( OUT Q )
+           receiver/dec/ctrl/kout_reg ( IN SI ) ( OUT Q )
+           receiver/dec/dec_4b_3b/code_err1_reg ( IN SI ) ( OUT Q )
+           receiver/dec/dec_4b_3b/datout_reg[0] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_4b_3b/datout_reg[1] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_4b_3b/datout_reg[2] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_4b_3b/kout1_reg ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/code_err2_reg ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/datout_reg[0] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/datout_reg[1] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/datout_reg[2] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/datout_reg[3] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/datout_reg[4] ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/disp_err_reg ( IN SI ) ( OUT Q )
+           receiver/dec/dec_6b_5b/kout2_reg ( IN SI ) ( OUT Q )
+           receiver/dec/ctrl/rdispout_reg ( IN SI ) ( OUT Q )
++ PARTITION scan_clk_45_45
++ STOP PIN scan_out_1 ;
+
+- 2
++ START PIN scan_in_2
++ FLOATING receiver/dec/dff_data_in/q_reg[0] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[1] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[2] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[3] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[4] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[5] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[6] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[7] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[8] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_in/q_reg[9] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[0] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[1] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[2] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[3] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[4] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[5] ( IN SI ) ( OUT Q )
++ PARTITION scan_clk_45_45
++ STOP PIN scan_out_2 ;
+
+- 3
++ START PIN scan_in_3
++ FLOATING receiver/dec/dff_data_out/q_reg[6] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_data_out/q_reg[7] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_rdispin/q_reg[0] ( IN SI ) ( OUT Q )
+           receiver/ds/bit_count_reg[0] ( IN SI ) ( OUT Q )
+           receiver/ds/bit_count_reg[1] ( IN SI ) ( OUT Q )
+           receiver/ds/bit_count_reg[2] ( IN SI ) ( OUT Q )
+           receiver/ds/bit_count_reg[3] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[0] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[1] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[2] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[3] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[4] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[5] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[6] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[7] ( IN SI ) ( OUT Q )
+           receiver/dec/dff_disp_err/q_reg[0] ( IN SI ) ( OUT Q )
++ PARTITION scan_clk_45_45
++ STOP PIN scan_out_3 ;
+
+- 4
++ START PIN scan_in_4
++ FLOATING receiver/ds/datout_reg[8] ( IN SI ) ( OUT Q )
+           receiver/ds/datout_reg[9] ( IN SI ) ( OUT Q )
+           transmitter/enc/counter_reg ( IN SI ) ( OUT Q )
+           transmitter/enc/curr_dis_ff/q_reg[0] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[0] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[1] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[2] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[3] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[4] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[5] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[6] ( IN SI ) ( OUT Q )
+           transmitter/enc/data_ff/q_reg[7] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[0] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[1] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[2] ( IN SI ) ( OUT Q )
++ PARTITION scan_clk_45_45
++ STOP PIN scan_out_4 ;
+
+- 5
++ START PIN scan_in_5
++ FLOATING transmitter/enc/dataout_ff/q_reg[3] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[4] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[5] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[6] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[7] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[8] ( IN SI ) ( OUT Q )
+           transmitter/enc/dataout_ff/q_reg[9] ( IN SI ) ( OUT Q )
+           transmitter/enc/kin_ff/q_reg[0] ( IN SI ) ( OUT Q )
+           transmitter/enc/valid_reg ( IN SI ) ( OUT Q )
+           transmitter/serial/counter_reg[0] ( IN SI ) ( OUT Q )
+           transmitter/serial/counter_reg[1] ( IN SI ) ( OUT Q )
+           transmitter/serial/counter_reg[2] ( IN SI ) ( OUT Q )
+           transmitter/serial/counter_reg[3] ( IN SI ) ( OUT Q )
+           transmitter/serial/data_out_reg ( IN SI ) ( OUT Q )
+           transmitter/enc/k_err_ff/q_reg[0] ( IN SI ) ( OUT Q )
++ PARTITION scan_clk_45_45
++ STOP PIN scan_out_5 ;
+
+END SCANCHAINS
+
+END DESIGN

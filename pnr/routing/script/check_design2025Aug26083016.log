@@ -1,0 +1,182 @@
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:30:16 2025
+****************************************
+No mismatches exist on the design.
+1
+****************************************
+Report : SCANDEF check
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:30:16 2025
+****************************************
+  Checking between SCANDEF file and design:
+
+  Total PARTITION group count: 1
+  Total SCANCHAINS checked: 5
+  VALIDATED :  5
+  FAILED    :  0
+
+  Chain name     Status    #cells    #bits     PARTITION      Scan in        Scan out
+  1              V         16        16        scan_clk_45_45 scan_in_1      scan_out_1
+  2              V         16        16        scan_clk_45_45 scan_in_2      scan_out_2
+  3              V         16        16        scan_clk_45_45 scan_in_3      scan_out_3
+  4              V         15        15        scan_clk_45_45 scan_in_4      scan_out_4
+  5              V         15        15        scan_clk_45_45 scan_in_5      scan_out_5
+1
+NEX: 1249 nets
+NEX: 99.76%(1246/1249) nets are valid placed
+
+Histogram of "num of nodes per net"
+  value: 	percent%
+     0: 	0.2% 
+     2: 	45.7% 
+     3: 	47.2% (peak)
+     4: 	5.8% (average = 4) 
+     5: 	0.6% 
+    20: 	0.1% 
+    40: 	0.2% 
+    1000: 	0.2% 
+
+
+Histogram of "net bbox size(um)"
+  value: 	percent%
+   0.00: 	0.2% 
+   2.00: 	2.7% 
+   3.00: 	6.2% 
+   4.00: 	13.9% (peak)
+   5.00: 	31.0% 
+   10.00: 	24.7% (average = 17.0) 
+   20.00: 	11.7% 
+   40.00: 	7.7% 
+   100.00: 	1.9% 
+
+
+Histogram of "net bbox aspect()"
+  value: 	percent%
+   0.00: 	0.2% 
+   1.00: 	9.0% (peak)
+   1.10: 	7.0% 
+   1.20: 	6.2% 
+   1.30: 	5.0% 
+   1.40: 	5.3% 
+   1.50: 	4.2% 
+   1.60: 	3.4% 
+   1.70: 	3.7% 
+   1.80: 	2.9% 
+   1.90: 	2.3% 
+   2.00: 	12.7% 
+   2.50: 	8.8% 
+   3.00: 	11.4% (average = 3.1) 
+   4.00: 	5.7% 
+   5.00: 	8.6% 
+   10.00: 	2.6% 
+   20.00: 	0.5% 
+   30.00: 	0.2% 
+   40.00: 	0.2% 
+
+NEX: 1214 insts
+
+Histogram of "inst bbox size(um)"
+  value: 	percent%
+   3.00: 	87.1% (average = 3.8) (peak)
+   4.00: 	5.4% 
+   5.00: 	1.1% 
+   10.00: 	6.5% 
+
+NEX: 1 NDR rules: 
+  [0] clk_network_NDR
+1
+Warning: Ignore contact DIFFCON. (ZRT-015)
+Turn off antenna since no rule is specified
+Cell Min-Routing-Layer = M1
+Cell Max-Routing-Layer = M8
+Warning: Ignore 2 top cell ports with no pins. (ZRT-027)
+Info: number of net_type_blockage: 0 
+Via on layer (VIA1) needs more than one tracks
+Warning: Layer M1 pitch 0.320 may be too small: wire/via-down 0.315, wire/via-up 0.330. (ZRT-026)
+Via on layer (VIA1) needs more than one tracks
+Warning: Layer M2 pitch 0.320 may be too small: wire/via-down 0.360, wire/via-up 0.320. (ZRT-026)
+Printing options for 'route.common.*'
+
+Printing options for 'route.detail.*'
+detail.antenna                                          :	 true                
+detail.force_end_on_preferred_grid                      :	 true                
+
+Printing options for 'route.auto_via_ladder.*'
+
+
+============================================
+==  Check for overlap of standard cells   ==
+============================================
+
+>>>>>> No overlap of standard cells found
+
+============================================
+==     Check for min-grid violations      ==
+============================================
+
+>>>>>> No min-grid violations found
+
+
+============================================
+==    Check for out-of-boundary ports     ==
+============================================
+
+>>>>>> No out-of-boundary error found
+
+============================================
+==        Check for blocked ports         ==
+============================================
+
+>>>>>> No blocked ports found
+
+>>>>>> No blocked nets found
+
+============================================
+==     Check for shielding violations     ==
+============================================
+
+>>>>>> The following Non-PG net has a shape with shape_use shield_route
+
+>>> No non-PG net has a shape with shape_use shield_route.
+
+>>>>>> The following PG net has shape with shape_use detail_route and shape length is too long.
+
+>>> No PG net has shape with shape_use detail_route and shape length is too long.
+
+>>>>>> The following nets with shield non-default rule has no internal data representation in Zroute.
+
+>>> No nets with shield non-default rule has no internal data representation in Zroute.
+
+============================================
+==     Check for via cut blockage violation   ==
+============================================
+
+>>>>>> The following via cut blockages are wrongly treated as real vias.
+
+>>> No via cut blockage is wrongly treated as real via.
+
+============================================
+==     Check for custom via definition    ==
+============================================
+
+>>> No custom via definition has too many cuts
+
+============================================
+==          Check for via master          ==
+============================================
+
+>>> The total number of via master definition is 83
+
+===============================================
+==     Check non-default rule setting        ==
+===============================================
+
+>>> No NDR width is larger than signalRouteMaxWidth
+
+>>> No NDR shield width is larger than signalRouteMaxWidth
+
+End of check_routability
+1

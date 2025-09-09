@@ -1,0 +1,9 @@
+****************************************
+ Report : clock routing rules
+ Design : system
+ Date   : Tue Aug 26 08:26:46 2025
+****************************************
+   Design Base; Net Type: sink;     Rule: default rule; Min Layer: M2; Max Layer: M7
+   Design Base; Net Type: internal; Rule: clk_network_NDR; Min Layer: M2; Max Layer: M7
+   Design Base; Net Type: root;     Rule: clk_network_NDR; Min Layer: M2; Max Layer: M7
+

@@ -1,0 +1,47 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by design
+        -nosplit
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:26:47 2025
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: transmitter/enc/valid_reg (rising edge-triggered flip-flop clocked by fun_pclk)
+  Endpoint: transmitter/enc/counter_reg (rising edge-triggered flip-flop clocked by fun_pclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_pclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.73      0.73
+
+  transmitter/enc/valid_reg/CLK (SDFFARX1)         0.00      0.73 r
+  transmitter/enc/valid_reg/QN (SDFFARX1)          0.66      1.39 f
+  transmitter/enc/U46/Q (OR2X1)                    0.21      1.60 f
+  transmitter/enc/counter_reg/D (SDFFARX1)         0.00      1.60 f
+  data arrival time                                          1.60
+
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+  clock reconvergence pessimism                   -0.03      0.73
+  transmitter/enc/counter_reg/CLK (SDFFARX1)       0.00      0.73 r
+  clock uncertainty                                0.07      0.80
+  library hold time                               -0.04      0.76
+  data required time                                         0.76
+  ------------------------------------------------------------------------
+  data required time                                         0.76
+  data arrival time                                         -1.60
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.84
+
+
+1

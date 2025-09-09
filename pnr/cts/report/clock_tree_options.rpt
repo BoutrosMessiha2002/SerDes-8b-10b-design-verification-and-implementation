@@ -1,0 +1,28 @@
+****************************************
+ Report : target skew and latency
+ Design : system
+ Date   : Tue Aug 26 08:26:46 2025
+****************************************
+
+##Target Skew
+
+Clock                        Corner                        Target
+-----------------------------------------------------------------
+fun_sclk (mode default)      default                       0.1
+scan_clk (mode default)      default                       0.1
+fun_pclk (mode default)      default                       0.15
+
+##Target Latency
+
+Clock                        Corner                        Target
+-----------------------------------------------------------------
+fun_pclk (mode default)      default                       0.7
+scan_clk (mode default)      default                       0.7
+fun_sclk (mode default)      default                       0.8
+
+##Max Level Count
+
+Clock                                  Count
+-----------------------------------------------------------------
+No max level constraints found.
+1

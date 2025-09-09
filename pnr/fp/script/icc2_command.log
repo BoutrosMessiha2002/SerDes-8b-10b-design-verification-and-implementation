@@ -1,0 +1,71 @@
+#@ # 
+#@ # Running icc2_shell Version O-2018.06-SP1 for linux64 -- Jul 17, 2018
+#@ # Date:   Tue Sep  9 00:02:07 2025
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+start_gui
+gui_set_pref_value -category {SelectByNamePalette} -key {ObjectType} -value {Logical Cells}
+open_lib /home/ICer/SerDes/pnr/setup/script/SerDes.dlib -edit
+open_block /home/ICer/SerDes/pnr/setup/script/SerDes.dlib:SerDes_fp.design
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetX} -value {0.005}
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetY} -value {0.005}
+link_block
+win_set_filter -visible -class cell -filter {hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -visible -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_filter -expand_cell_types {soft_macro  }
+win_set_select_class -visible {cell port bound routing_blockage shaping_blockage pg_region pin_blockage block_shielding topology_node topology_edge core_area die_area edit_group shape via terminal fill_cell placement_blockage }
+win_set_filter -class cell -filter {cell_array hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_select_class {cell port bound routing_blockage shaping_blockage pg_region pin_blockage topology_node topology_edge edit_group shape via placement_blockage }
+open_block /home/ICer/SerDes/pnr/setup/script/SerDes.dlib:SerDes_pp.design
+link_block
+open_block /home/ICer/SerDes/pnr/setup/script/SerDes.dlib:SerDes_cts.design
+link_block
+open_block /home/ICer/SerDes/pnr/setup/script/SerDes.dlib:SerDes_pl.design
+link_block
+set_working_design_stack SerDes.dlib:SerDes_cts.design
+cd ../../
+ls
+cd routing/script
+set design SerDes
+set design_lib_path /home/ICer/SerDes/pnr/setup/script
+open_block $design_lib_path/${design}.dlib:${design}_cts.design
+copy_block -from_block ${design}.dlib:${design}_cts.design -to_block ${design}_routing
+current_block ${design}_routing.design
+link_block
+report_qor -summary
+check_design -checks pre_route_stage
+suppress_message -force CMD-013
+suppress_message -force CMD-013; report_design_mismatch -check_design >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; check_scan_chain >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; check_mv_design >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; design_extraction_check >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; check_timing >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; check_routability >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+suppress_message -force CMD-013; check_hier_design -stage pre_route >> /home/ICer/SerDes/pnr/routing/script/check_design2025Sep09000618.log
+unsuppress_message CMD-013
+global_route_opt
+route_global
+check_pg_drc
+route_track
+check_pg_drc
+route_detail
+check_pg_drc
+check_routes
+set FillerCells " */SHFILL1*"
+create_stdcell_fillers -lib_cells $FillerCells
+connect_pg_net -net "VDD" [get_pins -hierarchical "*/VDD*"]
+connect_pg_net -net "VSS" [get_pins -hierarchical "*/VSS"]
+check_pg_drc
+check_routes -drc true
+remove_stdcell_fillers_with_violation
+check_legality
+report_timing -max_paths 10 > ../report/timing.rpt
+report_timing -max_paths 10 -delay_type min > ../report/hold_timing.rpt
+check_routes -drc true > ../report/check_routes.rpt
+check_pg_drc > ../report/final_drc.rpt
+write_verilog  ../output/${design}_routing_Netlist.v
+write_sdc -output ../output/${design}_routing_SDC.sdc
+write_parasitics -format SPEF -output ../output/${design}_Routing_Spef.spef
+write_def ../output/${design}_Routing_def.def

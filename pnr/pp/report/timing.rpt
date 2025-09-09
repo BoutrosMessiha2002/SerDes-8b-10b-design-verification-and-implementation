@@ -1,0 +1,59 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:20:36 2025
+****************************************
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U106/ZN (INVX0)                      0.09      2.16 f
+  receiver/ds/U48/Q (AND2X4)                       0.31      2.47 f
+  receiver/ds/U60/ZN (INVX0)                       0.08      2.54 r
+  receiver/ds/U49/QN (OAI22X1)                     0.37      2.91 f
+  receiver/ds/datout_reg[2]/D (SDFFARX1)           0.00      2.91 f
+  data arrival time                                          2.91
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[2]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.91
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.35
+
+
+1

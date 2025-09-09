@@ -1,0 +1,141 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:02:20 2025
+****************************************
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+  Startpoint: transmitter/enc/data_ff/q_reg[3]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: transmitter/enc/curr_dis_ff/q_reg[0]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  system             8000                  saed90nm_max
+  encoder            8000                  saed90nm_max
+  enc_5b             8000                  saed90nm_max
+  enc_3b             8000                  saed90nm_max
+  control_enc        ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock scan_clk (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  transmitter/enc/data_ff/q_reg[3]/CLK (SDFFARX1)         0.00       0.00 r
+  transmitter/enc/data_ff/q_reg[3]/Q (SDFFARX1)           0.68       0.68 f
+  transmitter/enc/data_ff/q[3] (dff_enc_WIDTH8)           0.00       0.68 f
+  transmitter/enc/U12/ZN (INVX0)                          0.26       0.94 r
+  transmitter/enc/U13/ZN (INVX0)                          0.27       1.22 f
+  transmitter/enc/enc_inst_5b/datain[3] (enc_5b)          0.00       1.22 f
+  transmitter/enc/enc_inst_5b/U18/ZN (INVX0)              0.24       1.46 r
+  transmitter/enc/enc_inst_5b/U21/ZN (INVX0)              0.27       1.73 f
+  transmitter/enc/enc_inst_5b/U351/ZN (INVX0)             0.23       1.96 r
+  transmitter/enc/enc_inst_5b/U230/ZN (INVX0)             0.12       2.08 f
+  transmitter/enc/enc_inst_5b/U232/ZN (INVX0)             0.24       2.32 r
+  transmitter/enc/enc_inst_5b/U352/QN (NOR2X0)            0.15       2.47 f
+  transmitter/enc/enc_inst_5b/U215/ZN (INVX0)             0.24       2.71 r
+  transmitter/enc/enc_inst_5b/U216/ZN (INVX0)             0.12       2.83 f
+  transmitter/enc/enc_inst_5b/U109/Q (AND2X4)             0.46       3.29 f
+  transmitter/enc/enc_inst_5b/U233/ZN (INVX0)             0.13       3.42 r
+  transmitter/enc/enc_inst_5b/U234/ZN (INVX0)             0.27       3.69 f
+  transmitter/enc/enc_inst_5b/U32/Q (AND2X4)              0.45       4.15 f
+  transmitter/enc/enc_inst_5b/U33/ZN (INVX0)              0.12       4.27 r
+  transmitter/enc/enc_inst_5b/U57/Q (AND3X4)              0.60       4.87 r
+  transmitter/enc/enc_inst_5b/U58/ZN (INVX0)              0.15       5.02 f
+  transmitter/enc/enc_inst_5b/U20/QN (NOR4X1)             0.37       5.38 r
+  transmitter/enc/enc_inst_5b/U88/QN (AOI21X1)            0.26       5.65 f
+  transmitter/enc/enc_inst_5b/U89/ZN (INVX0)              0.11       5.76 r
+  transmitter/enc/enc_inst_5b/U99/Q (OA221X1)             0.37       6.12 r
+  transmitter/enc/enc_inst_5b/U108/Q (AND3X4)             0.49       6.62 r
+  transmitter/enc/enc_inst_5b/U252/ZN (INVX0)             0.29       6.91 f
+  transmitter/enc/enc_inst_5b/U66/Q (XNOR2X2)             0.45       7.36 r
+  transmitter/enc/enc_inst_5b/U141/ZN (INVX0)             0.25       7.61 f
+  transmitter/enc/enc_inst_5b/U142/ZN (INVX0)             0.11       7.72 r
+  transmitter/enc/enc_inst_5b/U324/QN (NOR2X0)            0.14       7.85 f
+  transmitter/enc/enc_inst_5b/U9/ZN (INVX0)               0.12       7.98 r
+  transmitter/enc/enc_inst_5b/U10/ZN (INVX0)              0.24       8.22 f
+  transmitter/enc/enc_inst_5b/U40/QN (AOI21X1)            0.29       8.50 r
+  transmitter/enc/enc_inst_5b/U41/ZN (INVX0)              0.12       8.62 f
+  transmitter/enc/enc_inst_5b/U123/ZN (INVX0)             0.23       8.85 r
+  transmitter/enc/enc_inst_5b/U186/ZN (INVX0)             0.12       8.96 f
+  transmitter/enc/enc_inst_5b/U120/Q (XNOR2X2)            0.47       9.43 r
+  transmitter/enc/enc_inst_5b/U203/ZN (INVX0)             0.13       9.56 f
+  transmitter/enc/enc_inst_5b/U204/ZN (INVX0)             0.25       9.81 r
+  transmitter/enc/enc_inst_5b/U106/Q (XNOR2X2)            0.42      10.23 f
+  transmitter/enc/enc_inst_5b/U91/Q (AND2X4)              0.48      10.71 f
+  transmitter/enc/enc_inst_5b/disparity_6b[2] (enc_5b)
+                                                          0.00      10.71 f
+  transmitter/enc/enc_inst_3b/disparity_6b[2] (enc_3b)
+                                                          0.00      10.71 f
+  transmitter/enc/enc_inst_3b/U59/QN (NOR3X0)             0.18      10.89 r
+  transmitter/enc/enc_inst_3b/U123/ZN (INVX0)             0.17      11.06 f
+  transmitter/enc/enc_inst_3b/U125/ZN (INVX0)             0.27      11.33 r
+  transmitter/enc/enc_inst_3b/U69/Q (AND2X4)              0.48      11.81 r
+  transmitter/enc/enc_inst_3b/U70/ZN (INVX0)              0.27      12.08 f
+  transmitter/enc/enc_inst_3b/U104/ZN (INVX0)             0.12      12.20 r
+  transmitter/enc/enc_inst_3b/U137/ZN (INVX0)             0.27      12.46 f
+  transmitter/enc/enc_inst_3b/U145/ZN (INVX0)             0.23      12.69 r
+  transmitter/enc/enc_inst_3b/U105/ZN (INVX0)             0.27      12.97 f
+  transmitter/enc/enc_inst_3b/U126/ZN (INVX0)             0.25      13.22 r
+  transmitter/enc/enc_inst_3b/U54/Q (AND3X1)              0.40      13.62 r
+  transmitter/enc/enc_inst_3b/U55/ZN (INVX0)              0.13      13.75 f
+  transmitter/enc/enc_inst_3b/U47/QN (OAI21X2)            0.53      14.28 r
+  transmitter/enc/enc_inst_3b/U49/ZN (INVX0)              0.11      14.38 f
+  transmitter/enc/enc_inst_3b/U31/Q (AND3X4)              0.54      14.93 f
+  transmitter/enc/enc_inst_3b/U92/ZN (INVX0)              0.14      15.07 r
+  transmitter/enc/enc_inst_3b/U35/ZN (INVX0)              0.27      15.34 f
+  transmitter/enc/enc_inst_3b/U79/Q (XNOR2X2)             0.43      15.78 r
+  transmitter/enc/enc_inst_3b/U81/ZN (INVX0)              0.13      15.91 f
+  transmitter/enc/enc_inst_3b/U30/ZN (INVX0)              0.23      16.14 r
+  transmitter/enc/enc_inst_3b/U80/ZN (INVX0)              0.11      16.25 f
+  transmitter/enc/enc_inst_3b/U142/QN (NOR2X0)            0.13      16.38 r
+  transmitter/enc/enc_inst_3b/U148/ZN (INVX0)             0.14      16.52 f
+  transmitter/enc/enc_inst_3b/U77/ZN (INVX0)              0.23      16.75 r
+  transmitter/enc/enc_inst_3b/U61/QN (AOI21X1)            0.26      17.01 f
+  transmitter/enc/enc_inst_3b/U62/ZN (INVX0)              0.11      17.12 r
+  transmitter/enc/enc_inst_3b/U75/ZN (INVX0)              0.25      17.37 f
+  transmitter/enc/enc_inst_3b/U99/ZN (INVX0)              0.11      17.48 r
+  transmitter/enc/enc_inst_3b/U43/Q (XNOR2X2)             0.43      17.91 r
+  transmitter/enc/enc_inst_3b/U44/ZN (INVX0)              0.13      18.04 f
+  transmitter/enc/enc_inst_3b/U72/Z (NBUFFX4)             0.25      18.30 f
+  transmitter/enc/enc_inst_3b/U71/ZN (INVX0)              0.10      18.40 r
+  transmitter/enc/enc_inst_3b/U103/ZN (INVX0)             0.12      18.52 f
+  transmitter/enc/enc_inst_3b/ones_counter_4b[0] (enc_3b)
+                                                          0.00      18.52 f
+  transmitter/enc/controller/ones_counter_4b[0] (control_enc)
+                                                          0.00      18.52 f
+  transmitter/enc/controller/U10/Q (XNOR2X2)              0.44      18.96 f
+  transmitter/enc/controller/U20/ZN (INVX0)               0.13      19.09 r
+  transmitter/enc/controller/U21/ZN (INVX0)               0.25      19.34 f
+  transmitter/enc/controller/U16/QN (AOI21X1)             0.28      19.62 r
+  transmitter/enc/controller/U15/Q (OA221X1)              0.26      19.88 r
+  transmitter/enc/controller/U3/QN (OAI22X1)              0.47      20.34 f
+  transmitter/enc/controller/rdispout (control_enc)       0.00      20.34 f
+  transmitter/enc/curr_dis_ff/d[0] (dff_enc_1)            0.00      20.34 f
+  transmitter/enc/curr_dis_ff/q_reg[0]/D (SDFFARX1)       0.03      20.37 f
+  data arrival time                                                 20.37
+
+  clock scan_clk (rise edge)                            500.00     500.00
+  clock network delay (ideal)                             0.00     500.00
+  transmitter/enc/curr_dis_ff/q_reg[0]/CLK (SDFFARX1)     0.00     500.00 r
+  library setup time                                     -0.64     499.36
+  data required time                                               499.36
+  --------------------------------------------------------------------------
+  data required time                                               499.36
+  data arrival time                                                -20.37
+  --------------------------------------------------------------------------
+  slack (MET)                                                      478.99
+
+
+1

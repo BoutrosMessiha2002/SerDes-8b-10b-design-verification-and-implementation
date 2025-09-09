@@ -1,0 +1,351 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 10
+        -report_by design
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Sep  9 00:06:33 2025
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: transmitter/enc/valid_reg (rising edge-triggered flip-flop clocked by fun_pclk)
+  Endpoint: transmitter/enc/counter_reg (rising edge-triggered flip-flop clocked by fun_pclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_pclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.72      0.72
+
+  transmitter/enc/valid_reg/CLK (SDFFARX1)         0.00      0.72 r
+  transmitter/enc/valid_reg/QN (SDFFARX1)          0.66      1.37 f
+  transmitter/enc/U46/Q (OR2X1)                    0.21      1.58 f
+  transmitter/enc/counter_reg/D (SDFFARX1)         0.00      1.58 f
+  data arrival time                                          1.58
+
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+  clock reconvergence pessimism                   -0.03      0.72
+  transmitter/enc/counter_reg/CLK (SDFFARX1)       0.00      0.72 r
+  clock uncertainty                                0.07      0.79
+  library hold time                               -0.04      0.74
+  data required time                                         0.74
+  ------------------------------------------------------------------------
+  data required time                                         0.74
+  data arrival time                                         -1.58
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.84
+
+
+
+  Startpoint: transmitter/serial/counter_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  transmitter/serial/counter_reg[2]/CLK (SDFFARX1)
+                                                   0.00      0.75 r
+  transmitter/serial/counter_reg[2]/Q (SDFFARX1)   0.81      1.56 f
+  receiver/ds/datout_reg[2]/SI (SDFFARX1)          0.00      1.56 f
+  data arrival time                                          1.56
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[2]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.13      0.69
+  data required time                                         0.69
+  ------------------------------------------------------------------------
+  data required time                                         0.69
+  data arrival time                                         -1.56
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.88
+
+
+
+  Startpoint: transmitter/serial/counter_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  transmitter/serial/counter_reg[3]/CLK (SDFFARX1)
+                                                   0.00      0.75 r
+  transmitter/serial/counter_reg[3]/Q (SDFFARX1)   0.82      1.57 f
+  transmitter/serial/counter_reg[0]/SI (SDFFARX1)
+                                                   0.00      1.57 f
+  data arrival time                                          1.57
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  transmitter/serial/counter_reg[0]/CLK (SDFFARX1)
+                                                   0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.57
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.88
+
+
+
+  Startpoint: receiver/ds/datout_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[6] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  receiver/ds/datout_reg[2]/CLK (SDFFARX1)         0.00      0.75 r
+  receiver/ds/datout_reg[2]/Q (SDFFARX1)           0.82      1.57 f
+  receiver/ds/datout_reg[6]/SI (SDFFARX1)          0.00      1.57 f
+  data arrival time                                          1.57
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[6]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.57
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.89
+
+
+
+  Startpoint: receiver/ds/datout_reg[6] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  receiver/ds/datout_reg[6]/CLK (SDFFARX1)         0.00      0.75 r
+  receiver/ds/datout_reg[6]/Q (SDFFARX1)           0.82      1.57 f
+  receiver/ds/datout_reg[3]/SI (SDFFARX1)          0.00      1.57 f
+  data arrival time                                          1.57
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[3]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.57
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.89
+
+
+
+  Startpoint: receiver/ds/datout_reg[4] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[5] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  receiver/ds/datout_reg[4]/CLK (SDFFARX1)         0.00      0.75 r
+  receiver/ds/datout_reg[4]/Q (SDFFARX1)           0.83      1.58 f
+  receiver/ds/datout_reg[5]/SI (SDFFARX1)          0.00      1.58 f
+  data arrival time                                          1.58
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[5]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.58
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.90
+
+
+
+  Startpoint: receiver/ds/datout_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[4] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  receiver/ds/datout_reg[1]/CLK (SDFFARX1)         0.00      0.75 r
+  receiver/ds/datout_reg[1]/Q (SDFFARX1)           0.83      1.58 f
+  receiver/ds/datout_reg[4]/SI (SDFFARX1)          0.00      1.58 f
+  data arrival time                                          1.58
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[4]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.58
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.90
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[9] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.75 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.83      1.58 f
+  receiver/ds/datout_reg[9]/SI (SDFFARX1)          0.00      1.58 f
+  data arrival time                                          1.58
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  receiver/ds/datout_reg[9]/CLK (SDFFARX1)         0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.58
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.90
+
+
+
+  Startpoint: transmitter/serial/data_out_reg (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+
+  transmitter/serial/data_out_reg/CLK (SDFFARX1)   0.00      0.75 r
+  transmitter/serial/data_out_reg/Q (SDFFARX1)     0.84      1.59 f
+  transmitter/serial/counter_reg[1]/SI (SDFFARX1)
+                                                   0.00      1.59 f
+  data arrival time                                          1.59
+
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.76      0.76
+  clock reconvergence pessimism                   -0.01      0.75
+  transmitter/serial/counter_reg[1]/CLK (SDFFARX1)
+                                                   0.00      0.75 r
+  clock uncertainty                                0.07      0.82
+  library hold time                               -0.14      0.68
+  data required time                                         0.68
+  ------------------------------------------------------------------------
+  data required time                                         0.68
+  data arrival time                                         -1.59
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.91
+
+
+
+  Startpoint: transmitter/enc/data_ff/q_reg[2] (rising edge-triggered flip-flop clocked by fun_pclk)
+  Endpoint: transmitter/enc/data_ff/q_reg[5] (rising edge-triggered flip-flop clocked by fun_pclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_pclk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.72      0.72
+
+  transmitter/enc/data_ff/q_reg[2]/CLK (SDFFARX1)
+                                                   0.00      0.72 r
+  transmitter/enc/data_ff/q_reg[2]/Q (SDFFARX1)    0.92      1.64 f
+  transmitter/enc/data_ff/q_reg[5]/SI (SDFFARX1)   0.00      1.64 f
+  data arrival time                                          1.64
+
+  clock fun_pclk (rise edge)                       0.00      0.00
+  clock network delay (propagated)                 0.75      0.75
+  clock reconvergence pessimism                   -0.03      0.72
+  transmitter/enc/data_ff/q_reg[5]/CLK (SDFFARX1)
+                                                   0.00      0.72 r
+  clock uncertainty                                0.07      0.79
+  library hold time                               -0.07      0.72
+  data required time                                         0.72
+  ------------------------------------------------------------------------
+  data required time                                         0.72
+  data arrival time                                         -1.64
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.92
+
+
+1

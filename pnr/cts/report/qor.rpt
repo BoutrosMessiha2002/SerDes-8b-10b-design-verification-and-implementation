@@ -1,0 +1,79 @@
+****************************************
+Report : qor
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:26:47 2025
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+
+Scenario           'default'
+Timing Path Group  'fun_sclk'
+----------------------------------------
+Levels of Logic:                     11
+Critical Path Length:              3.07
+Critical Path Slack:              21.33
+Critical Path Clk Period:         25.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'default'
+Timing Path Group  'fun_pclk'
+----------------------------------------
+Levels of Logic:                     60
+Critical Path Length:             12.86
+Critical Path Slack:             236.65
+Critical Path Clk Period:        250.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:             24
+Hierarchical Port Count:            610
+Leaf Cell Count:                   1214
+Buf/Inv Cell Count:                 765
+Buf Cell Count:                       4
+Inv Cell Count:                     761
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:          1136
+Sequential Cell Count:               78
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:             7495.37
+Noncombinational Area:          2947.28
+Buf/Inv Area:                   4284.52
+Total Buffer Area:                71.88
+Total Inverter Area:            4212.63
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                       0.00
+Net YLength:                       0.00
+----------------------------------------
+Cell Area (netlist):                          10442.65
+Cell Area (netlist and physical only):        10442.65
+Net Length:                        0.00
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              1249
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1

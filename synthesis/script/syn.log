@@ -1,0 +1,570 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/ICer/.synopsys_dv_prefs.tcl
+lappend search_path "/home/ICer/Downloads/Lib/synopsys/models"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models
+set lib_name "saed90nm_max.db"
+saed90nm_max.db
+set_app_var target_library $lib_name; #set target_library
+saed90nm_max.db
+set_app_var link_library "* $target_library"; #set link_library
+* saed90nm_max.db
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work
+1
+set compile_top_all_paths true
+true
+analyze -format verilog -lib work ../../rtl/system.v
+Running PRESTO HDLC
+Compiling source file ../../rtl/system.v
+Opening include file ../../rtl/control.v
+Opening include file ../../rtl/control_enc.v
+Opening include file ../../rtl/dec4b.v
+Opening include file ../../rtl/dec6b.v
+Opening include file ../../rtl/decoder.v
+Opening include file ../../rtl/deserializer.v
+Opening include file ../../rtl/dff.v
+Opening include file ../../rtl/dff_enc.v
+Opening include file ../../rtl/enc_3b.v
+Opening include file ../../rtl/enc_5b.v
+Opening include file ../../rtl/encoder.v
+Opening include file ../../rtl/receiver.v
+Opening include file ../../rtl/serializer.v
+Opening include file ../../rtl/transmitter.v
+Opening include file ../../rtl/mux2to1.v
+Presto compilation completed successfully.
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+1
+elaborate system -lib work
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_max'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'system'.
+Information: Building the design 'mux2to1'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'transmitter'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'receiver'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'serializer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine serializer line 8 in file
+		'../../rtl/serializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    data_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'encoder'. (HDL-193)
+
+Inferred memory devices in process
+	in routine encoder line 23 in file
+		'../../rtl/encoder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      valid_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'decoder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'deserializer'. (HDL-193)
+
+Inferred memory devices in process
+	in routine deserializer line 7 in file
+		'../../rtl/deserializer.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     datout_reg      | Flip-flop |  10   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    bit_count_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dff_enc'. (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_enc line 6 in file
+		'../../rtl/dff_enc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dff_enc' instantiated from design 'encoder' with
+	the parameters "WIDTH=8". (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_enc_WIDTH8 line 6 in file
+		'../../rtl/dff_enc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dff_enc' instantiated from design 'encoder' with
+	the parameters "WIDTH=10". (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_enc_WIDTH10 line 6 in file
+		'../../rtl/dff_enc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |  10   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'enc_3b'. (HDL-193)
+
+Statistics for case statements in always block at line 8 in file
+	'../../rtl/enc_3b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            9             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'enc_5b'. (HDL-193)
+
+Statistics for case statements in always block at line 6 in file
+	'../../rtl/enc_5b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            7             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'control_enc'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'decoder' with
+	the parameters "10". (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_width10 line 6 in file
+		'../../rtl/dff.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |  10   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'decoder' with
+	the parameters "1". (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_width1 line 6 in file
+		'../../rtl/dff.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dec4b'. (HDL-193)
+
+Statistics for case statements in always block at line 6 in file
+	'../../rtl/dec4b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            12            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine dec4b line 6 in file
+		'../../rtl/dec4b.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    code_err1_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      kout1_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     datout_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dec6b'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../../rtl/dec6b.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            14            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine dec6b line 7 in file
+		'../../rtl/dec6b.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      kout2_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     datout_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    code_err2_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    disp_err_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'decoder' with
+	the parameters "8". (HDL-193)
+
+Inferred memory devices in process
+	in routine dff_width8 line 6 in file
+		'../../rtl/dff.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'control'. (HDL-193)
+
+Inferred memory devices in process
+	in routine control line 9 in file
+		'../../rtl/control.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      kout_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    code_err_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    rdispout_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design
+Current design is 'system'.
+{system}
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Tue Aug 26 08:00:55 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     11
+    Unconnected ports (LINT-28)                                     1
+    Feedthrough (LINT-29)                                          10
+
+Cells                                                              11
+    Cells do not drive (LINT-1)                                    11
+
+Nets                                                                3
+    Unloaded nets (LINT-2)                                          3
+--------------------------------------------------------------------------------
+
+Warning: In design 'serializer', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'deserializer', cell 'C117' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'C273' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'C276' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'B_15' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'B_16' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'C288' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'C291' does not drive any nets. (LINT-1)
+Warning: In design 'enc_3b', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'control_enc', cell 'B_8' does not drive any nets. (LINT-1)
+Warning: In design 'control', cell 'C62' does not drive any nets. (LINT-1)
+Warning: In design 'system', net 'transmitter/enc/disparity_4b[0]' driven by pin 'transmitter/enc/enc_inst_3b/disparity_4b[0]' has no loads. (LINT-2)
+Warning: In design 'system', net 'transmitter/enc/disparity_4b[1]' driven by pin 'transmitter/enc/enc_inst_3b/disparity_4b[1]' has no loads. (LINT-2)
+Warning: In design 'system', net 'transmitter/enc/disparity_4b[2]' driven by pin 'transmitter/enc/enc_inst_3b/disparity_4b[2]' has no loads. (LINT-2)
+Warning: In design 'control_enc', port 'valid' is not connected to any nets. (LINT-28)
+Warning: In design 'control_enc', input port 'data_4b[3]' is connected directly to output port 'dataout[3]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_4b[2]' is connected directly to output port 'dataout[2]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_4b[1]' is connected directly to output port 'dataout[1]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_4b[0]' is connected directly to output port 'dataout[0]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[5]' is connected directly to output port 'dataout[9]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[4]' is connected directly to output port 'dataout[8]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[3]' is connected directly to output port 'dataout[7]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[2]' is connected directly to output port 'dataout[6]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[1]' is connected directly to output port 'dataout[5]'. (LINT-29)
+Warning: In design 'control_enc', input port 'data_6b[0]' is connected directly to output port 'dataout[4]'. (LINT-29)
+1
+set_fix_multiple_port_nets -all -buffer_constants -feedthroughs
+1
+source ../cons/cons.tcl
+Current design is 'system'.
+Current design is 'system'.
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+false
+link
+
+  Linking design 'system'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (20 designs)              /home/ICer/SerDes/synthesis/script/system.db, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+1
+compile -map_effort high -incremental
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 25 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+  Processing 'deserializer'
+  Processing 'control'
+  Processing 'dff_width8'
+  Processing 'dff_width1_0'
+  Processing 'dec6b'
+  Processing 'dec4b'
+  Processing 'dff_width10'
+  Processing 'control_enc'
+  Processing 'enc_5b'
+  Processing 'enc_3b'
+  Processing 'dff_enc_WIDTH10'
+  Processing 'dff_enc_WIDTH8'
+  Processing 'dff_enc_0'
+  Processing 'encoder'
+  Processing 'serializer'
+  Processing 'mux2to1_0'
+  Processing 'mux2to1_1'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width4'
+  Processing 'DW01_add_width2'
+  Processing 'DW01_add_width3'
+  Processing 'DW01_add_width3'
+  Processing 'DW01_add_width2'
+  Processing 'DW01_add_width3'
+  Processing 'DW01_sub_width3'
+  Processing 'DW01_sub_width3'
+  Processing 'DW01_add_width2'
+  Processing 'DW01_add_width2'
+  Processing 'DW01_sub_width3'
+  Processing 'DW01_sub_width3'
+
+  Beginning Mapping Optimizations  (High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    6101.0      0.00       0.0    1432.4                          
+    0:00:02    6257.7      0.00       0.0    1429.3                          
+    0:00:02    6235.5      0.00       0.0    1423.3                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    6235.5      0.00       0.0    1418.4                          
+    0:00:02    6666.9      0.00       0.0    1352.8 transmitter/serial/n14   
+    0:00:02    7056.7      0.00       0.0    1309.8 receiver/dec/dff_data_in/q[8]
+    0:00:02    7453.9      0.00       0.0    1286.2 receiver/dec/dec_6b_5b/n38
+    0:00:02    7850.2      0.00       0.0    1263.0 transmitter/enc/enc_inst_5b/net3398
+    0:00:02    8254.8      0.00       0.0    1233.8 transmitter/enc/enc_inst_3b/n30
+    0:00:02    8623.4      0.00       0.0    1202.2 receiver/dec/dec_6b_5b/n15
+    0:00:02    9128.4      0.00       0.0    1185.4 transmitter/enc/enc_inst_5b/net3477
+    0:00:02    9564.4      0.00       0.0    1173.1 receiver/dec/dec_6b_5b/n10
+    0:00:02    9986.5      0.00       0.0    1160.6 transmitter/enc/enc_inst_3b/N77
+    0:00:03   10563.4      0.00       0.0    1139.2 transmitter/enc/enc_inst_5b/n86
+    0:00:03   11066.6      0.00       0.0    1119.6 transmitter/serial/net3701
+    0:00:03   11480.4      0.00       0.0    1105.2 receiver/dec/dec_6b_5b/n11
+    0:00:03   11848.1      0.00       0.0    1091.3 receiver/dec/dec_6b_5b/net3496
+    0:00:03   12311.7      0.00       0.0    1072.9 transmitter/enc/controller/net4688
+    0:00:03   12824.1      0.00       0.0    1052.7 transmitter/enc/enc_inst_5b/net4638
+    0:00:03   13327.3      0.00       0.0    1032.5 transmitter/enc/enc_inst_5b/net4205
+    0:00:03   13832.3      0.00       0.0    1012.7 transmitter/enc/enc_inst_5b/net4057
+    0:00:03   14397.2      0.00       0.0     990.5 transmitter/enc/enc_inst_5b/net3816
+    0:00:03   14898.6      0.00       0.0     971.0 receiver/dec/ctrl/net4575
+    0:00:03   15392.6      0.00       0.0     951.4 receiver/dec/dec_6b_5b/net4782
+    0:00:03   15956.6      0.00       0.0     929.4 receiver/dec/dec_6b_5b/net4332
+    0:00:03   16457.9      0.00       0.0     909.8 receiver/dec/dec_6b_5b/net4027
+    0:00:03   16958.4      0.00       0.0     890.3 receiver/dec/dec_6b_5b/net3725
+    0:00:03   17527.9      0.00       0.0     867.5 transmitter/enc/enc_inst_3b/net4444
+    0:00:03   18031.1      0.00       0.0     847.6 transmitter/enc/enc_inst_3b/net3933
+    0:00:03   18536.1      0.00       0.0     827.8 transmitter/serial/net4175
+    0:00:03   19041.2      0.00       0.0     808.1 receiver/ds/net4199      
+    0:00:03   19617.2      0.00       0.0     785.4 receiver/ds/n18          
+    0:00:04   20067.8      0.00       0.0     768.5 transmitter/enc/enc_inst_5b/n13
+    0:00:04   20546.2      0.00       0.0     750.9 receiver/dec/dec_6b_5b/net3416
+    0:00:04   20955.3      0.00       0.0     737.1 transmitter/enc/enc_inst_5b/net3398
+    0:00:04   21346.1      0.00       0.0     723.2 receiver/dec/dec_6b_5b/net3600
+    0:00:04   21847.4      0.00       0.0     707.6 transmitter/enc/controller/net6181
+    0:00:04   22254.8      0.00       0.0     695.3 receiver/ds/net3773      
+    0:00:04   22590.3      0.00       0.0     679.5 transmitter/enc/enc_inst_5b/n47
+    0:00:04   23025.3      0.00       0.0     668.0 transmitter/enc/enc_inst_5b/n88
+    0:00:04   23438.1      0.00       0.0     657.1 transmitter/enc/enc_inst_5b/net3490
+    0:00:04   23782.8      0.00       0.0     648.0 receiver/ds/net3862      
+    0:00:04   24182.8      0.00       0.0     638.3 transmitter/enc/enc_inst_3b/net4371
+    0:00:04   24588.3      0.00       0.0     629.4 receiver/ds/net3449      
+    0:00:04   24922.8      0.00       0.0     620.7 receiver/dec/dec_6b_5b/net3868
+    0:00:04   25309.0      0.00       0.0     612.8 transmitter/serial/net4418
+    0:00:04   25617.7      0.00       0.0     606.1 transmitter/enc/enc_inst_3b/sub_147_2/net3003
+    0:00:04   25745.8      0.00       0.0     602.5 transmitter/enc/enc_inst_3b/net3934
+    0:00:04   26019.5      0.00       0.0     598.3 transmitter/enc/enc_inst_5b/net6810
+    0:00:04   26239.8      0.00       0.0     593.7 receiver/dec/dec_4b_3b/net4740
+    0:00:05   26308.0      0.00       0.0     592.4 transmitter/serial/net3569
+    0:00:05   26360.5      0.00       0.0     589.8 test_mode                
+    0:00:05   26458.2      0.00       0.0     584.9 receiver/dec/dff_data_in/q[6]
+    0:00:05   26447.2      0.00       0.0     584.6 transmitter/enc/net4083  
+    0:00:05   26443.5      0.00       0.0     584.6 transmitter/enc/enc_inst_3b/add_0_root_add_1_root_add_146_3/net2971
+    0:00:05   26435.2      0.00       0.0     584.4 receiver/ds/net3862      
+    0:00:05   26438.9      0.00       0.0     584.2 receiver/dec/ctrl/net3856
+    0:00:05   26427.8      0.00       0.0     584.1 receiver/dec/dec_6b_5b/n11
+    0:00:05   26475.7      0.00       0.0     592.6 rst_mux/net3394          
+    0:00:05   27208.4      0.00       0.0     533.8 transmitter/enc/enc_inst_5b/datain[1]
+    0:00:05   27741.1      0.00       0.0     500.6 transmitter/enc/rdispout 
+    0:00:05   28289.4      0.00       0.0     467.2 receiver/dec/dff_data_in/net6975
+    0:00:05   28869.1      0.00       0.0     433.9 transmitter/enc/controller/datain[0]
+    0:00:05   29370.5      0.00       0.0     405.6 receiver/dec/dec_4b_3b/net7041
+    0:00:05   29777.8      0.00       0.0     379.2 transmitter/enc/enc_inst_3b/datain[0]
+    0:00:05   30404.5      0.00       0.0     347.2 transmitter/enc/enc_inst_3b/datain[1]
+    0:00:06   30937.2      0.00       0.0     321.0 transmitter/enc/data_ff/rst_n
+    0:00:06   31281.9      0.00       0.0     300.0 receiver/dec/dec_6b_5b/datin[4]
+    0:00:06   31579.5      0.00       0.0     280.7 transmitter/enc/dataout_ff/net6970
+    0:00:06   31912.2      0.00       0.0     263.7 receiver/dec/dec_4b_3b/net7209
+    0:00:06   32162.9      0.00       0.0     254.8 transmitter/enc/data_reg[5]
+    0:00:06   32335.3      0.00       0.0     243.4 transmitter/enc/dataout_ff/net6971
+    0:00:06   32695.6      0.00       0.0     229.3 receiver/ds/net7481      
+    0:00:06   32757.4      0.00       0.0     227.5 transmitter/enc/controller/rdispin
+    0:00:06   33102.0      0.00       0.0     219.8 transmitter/enc/enc_inst_5b/net7142
+    0:00:06   33321.4      0.00       0.0     216.5 transmitter/enc/enc_inst_3b/net7084
+    0:00:06   33432.9      0.00       0.0     215.2 transmitter/enc/enc_inst_3b/net4667
+    0:00:07   33455.9      0.83       1.5     214.2 receiver/ds/n8           
+    0:00:07   33487.3      2.65       5.6     213.6 receiver/ds/net3862      
+    0:00:07   33549.9      4.50      15.9     212.7 receiver/ds/net3447      
+    0:00:07   33546.2      4.36      15.2     212.7 receiver/ds/bit_count_reg[3]/D
+    0:00:07   33519.5      1.73       3.4     212.7 receiver/ds/datout_reg[7]/D
+    0:00:07   33512.1      1.37       2.7     212.7 receiver/ds/datout_reg[7]/D
+    0:00:08   33501.1      0.00       0.0     212.7                          
+    0:00:08   33512.1      0.00       0.0     212.7                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+compile -top
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00   33512.1      0.00       0.0     212.7                          
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00   33501.1      0.00       0.0     212.7                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+report_timing -max_paths 50 > ../report/timing_report.rpt
+report_area > ../report/area_report.rpt
+report_power > ../report/power_report.rpt
+write_sdc ../output/SerDes.sdc
+1
+write -format verilog -hierarchy -output ../output/SerDes.v
+Writing verilog file '/home/ICer/SerDes/synthesis/output/SerDes.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 1 nets to module encoder using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write -f ddc -hierarchy -output ../output/SerDes.ddc
+Writing ddc file '../output/SerDes.ddc'.
+1
+1
+dc_shell> exit
+
+Memory usage for main task 100 Mbytes.
+Memory usage for this session 100 Mbytes.
+CPU usage for this session 8 seconds ( 0.00 hours ).
+
+Thank you...

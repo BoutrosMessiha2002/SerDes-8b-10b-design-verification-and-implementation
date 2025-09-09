@@ -1,0 +1,62 @@
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+Information: Corner default: no PVT mismatches. (PVT-032)
+****************************************
+Report : cell
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:12:39 2025
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model
+    U - Unbound (missing)
+    s - user size_only
+    S - implicit size_only
+    d - user dont_touch
+    D - derived dont_touch
+    o - synthetic operator
+
+
+Cell                      Reference       Library          Attributes
+--------------------------------------------------------------------------------
+U1                        DELLN2X2        saed90nm_max     
+U10                       INVX32          saed90nm_max     
+U11                       INVX32          saed90nm_max     
+U12                       INVX0           saed90nm_max     
+U13                       INVX0           saed90nm_max     
+U14                       INVX0           saed90nm_max     
+U15                       INVX32          saed90nm_max     
+U16                       INVX32          saed90nm_max     
+U17                       INVX32          saed90nm_max     
+U18                       INVX32          saed90nm_max     
+U2                        DELLN2X2        saed90nm_max     
+U3                        INVX0           saed90nm_max     
+U4                        INVX0           saed90nm_max     
+U5                        INVX0           saed90nm_max     
+U6                        INVX0           saed90nm_max     
+U7                        INVX0           saed90nm_max     
+U8                        INVX32          saed90nm_max     
+U9                        INVX32          saed90nm_max     
+pclk_mux                  mux2to1_2                        h
+receiver                  receiver                         h
+rst_mux                   mux2to1_0                        h
+sclk_mux                  mux2to1_1                        h
+transmitter               transmitter                      h
+--------------------------------------------------------------------------------
+Total 23 cells
+
+1

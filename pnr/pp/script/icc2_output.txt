@@ -1,0 +1,1276 @@
+
+icc2_shell> set offset 2
+2
+icc2_shell> set width 3
+3
+icc2_shell> set spacing 5
+5
+icc2_shell> set horiz_top M9
+M9
+icc2_shell> set vert_top M8
+M8
+icc2_shell> 
+icc2_shell> set mesh2_horiz_top M7
+M7
+icc2_shell> set mesh2_vert_top M6
+M6
+icc2_shell> set mesh_width 5
+5
+icc2_shell> set mesh_pitch 15
+15
+icc2_shell> set mesh_offset 1
+1
+icc2_shell> set design SerDes
+SerDes
+icc2_shell> sh rm /home/ICer/SerDes/pnr/setup/script/SerDes.dlib/SerDes_fp/design.ndm.lock
+Error: rm: cannot remove '/home/ICer/SerDes/pnr/setup/script/SerDes.dlib/SerDes_fp/design.ndm.lock': No such file or directory
+        Use error_info for more info. (CMD-013)
+icc2_shell> 
+icc2_shell> 
+icc2_shell> set design_lib_path /home/ICer/SerDes/pnr/setup/script
+/home/ICer/SerDes/pnr/setup/script
+icc2_shell> open_block $design_lib_path/${design}.dlib:${design}_fp.design
+Information: User units loaded from library 'saed90nm_max' (LNK-040)
+Opening block 'SerDes.dlib:SerDes_fp.design' in edit mode
+{SerDes.dlib:SerDes_fp.design}
+icc2_shell> copy_block -from_block ${design}.dlib:${design}_fp.design -to_block ${design}_pp
+{SerDes.dlib:SerDes_pp.design}
+icc2_shell> current_block ${design}_pp.design
+{SerDes.dlib:SerDes_pp.design}
+icc2_shell> 
+icc2_shell> remove_ignored_layers -all -max_routing_layer -min_routing_layer
+1
+icc2_shell> report_ignored_layers
+****************************************
+Report : Ignored Layers
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:15:28 2025
+****************************************
+Layer Attribute                 Value
+--------------------------------------------------------------------------------
+Min Routing Layer               (none given)
+Max Routing Layer               (none given)
+RC Estimation Ignored Layers    (none given)
+1
+icc2_shell> create_net -power VDD
+Using libraries: SerDes.dlib saed90nm_max
+Warning: In library SerDes.dlib, no block views exist for block system. (LNK-064)
+Visiting block SerDes.dlib:SerDes_pp.design
+Design 'system' was successfully linked.
+{VDD}
+icc2_shell> create_net -ground VSS
+{VSS}
+icc2_shell> 
+icc2_shell> connect_pg_net -net VDD [get_pins -hierarchical *\VDD]
+icc2_shell> connect_pg_net -net VSS [get_pins -hierarchical *\VSS]
+icc2_shell> 
+icc2_shell> set_app_option -name plan.pgroute.auto_connect_pg_net -value true
+plan.pgroute.auto_connect_pg_net true
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> create_pg_region ring_region -core -expand_by_edge "{{side:1} {offset:$offset}} {{side:2} {offset:$offset}} {{side:3} {offset:$offset}} {{side:4} {offset:$offset}}"
+Define region based on core area.
+Expanding the region by: 
+{Horizontal offset: 0.000} {Vertical offset: 0.000} {Edge ID: 1 offset: 2.000} {Edge ID: 2 offset: 2.000} {Edge ID: 3 offset: 2.000} {Edge ID: 4 offset: 2.000} 
+Create region ring_region
+{ring_region}
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> create_pg_ring_pattern ring_pattern -horizontal_layer $horiz_top -vertical_layer $vert_top  -horizontal_spacing $spacing -vertical_spacing $spacing -horizontal_width $width -vertical_width $width
+Successfully create PG ring pattern ring_pattern.
+icc2_shell> 
+icc2_shell> set_pg_strategy ring_strategy -pg_regions {ring_region} -pattern {{name:ring_pattern} {nets: "VSS VDD"}}
+Successfully set PG strategy ring_strategy.
+icc2_shell> 
+icc2_shell> compile_pg -strategies ring_strategy
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Begin building search trees for block SerDes.dlib:SerDes_pp.design
+Done building search trees for block SerDes.dlib:SerDes_pp.design (time 0s)
+Updating PG strategies.
+Updating strategy ring_strategy.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating rings.
+Creating via connection between strategies and existing shapes.
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy ring_strategy.
+Checking 8 stacked vias:0% 10% 20% 30% 50% 60% 70% 80% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 8 wires.
+Committing wires takes 0.00 seconds.
+Committed 8 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> start_gui
+icc2_shell> check_pg_drc
+Command check_pg_drc started  at Tue Aug 26 08:16:41 2025
+Command check_pg_drc finished at Tue Aug 26 08:16:41 2025
+CPU usage for check_pg_drc: 0.00 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.00 seconds ( 0.00 hours)
+No errors found.
+icc2_shell> check_pg_connectivity
+Loading cell instances...
+Number of Standard Cells: 1457
+Number of Macro Cells: 0
+Number of IO Pad Cells: 0
+Number of Blocks: 0
+Loading P/G wires and vias...
+Number of VDD Wires: 4
+Number of VDD Vias: 4
+Number of VDD Terminals: 0
+Number of VSS Wires: 4
+Number of VSS Vias: 4
+Number of VSS Terminals: 0
+**************Verify net VDD connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 1457
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+**************Verify net VSS connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 1457
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Overall runtime: 0 seconds.
+icc2_shell> create_pg_mesh_pattern mesh1  -layers {{{vertical_layer: M8} {width:2} {spacing:interleaving} {pitch:25} {offset:1} {trim:true}} {{horizontal_layer: M9} {width:2} {spacing:interleaving} {pitch:25} {offset:1} {trim: true}}}
+Successfully create mesh pattern mesh1.
+1
+icc2_shell> set_pg_strategy mesh_strat1 -core -pattern {{pattern: mesh1} {nets: "VSS VDD"}} -extension {stop:outermost_ring}
+Successfully set PG strategy mesh_strat1.
+icc2_shell> compile_pg -strategies mesh_strat1
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Updating PG strategies.
+Updating strategy mesh_strat1.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating straps and vias in power plan.
+Creating wire shapes for strategies mesh_strat1 .
+Creating wire shapes runtime: 0 seconds
+Blockage cutting and DRC fixing for wire shapes for strategies mesh_strat1 .
+Check and fix DRC for 26 wires for strategy mesh_strat1.
+Checking DRC for 26 wires:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Creating 26 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via shapes for strategies mesh_strat1 .
+Working on strategy mesh_strat1.
+Number of detected intersections: 85
+Total runtime of via shapes creation: 0 seconds
+Check and fix DRC for 85 stacked vias for strategy mesh_strat1.
+Checking DRC for 85 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Runtime of via DRC checking for strategy mesh_strat1: 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 52 stacked vias.
+Checking DRC for 52 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy mesh_strat1.
+Checking 85 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 52 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 26 wires.
+Committing wires takes 0.00 seconds.
+Committed 137 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> check_pg_drc
+Command check_pg_drc started  at Tue Aug 26 08:16:43 2025
+Command check_pg_drc finished at Tue Aug 26 08:16:43 2025
+CPU usage for check_pg_drc: 0.00 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.00 seconds ( 0.00 hours)
+No errors found.
+icc2_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -start RulerTool
+icc2_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {-7.665 2.970} -scale 0.0064
+icc2_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -add_point {-7.680 2.800} -scale 0.0064
+icc2_shell> gui_mouse_tool -window [gui_get_current_window -types Layout -mru] -reset
+icc2_shell> create_pg_std_cell_conn_pattern std_cell_rail -layers M1 -rail_width 0.16
+Successfully create standard cell rail pattern std_cell_rail.
+icc2_shell> set_pg_strategy rails_M1 -core -pattern {{name: std_cell_rail} {nets: "VDD VSS"} }
+Successfully set PG strategy rails_M1.
+icc2_shell> compile_pg -strategies rails_M1
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Updating PG strategies.
+Updating strategy rails_M1.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating standard cell rails.
+Creating standard cell rails for strategy rails_M1.
+DRC checking and fixing for standard cell rail strategy rails_M1.
+Checking DRC for 56 wires:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Creating 56 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 364 stacked vias.
+Checking DRC for 364 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 364 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 56 wires.
+Committing wires takes 0.00 seconds.
+Committed 2548 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal8} -quiet]
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal9} -quiet]
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal1} -quiet]
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal1} -quiet]
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal8} -quiet]
+1
+icc2_shell> gui_set_layout_layer_visibility -toggle [get_layers -filter {mask_name == metal9} -quiet]
+1
+icc2_shell> check_pg_drc  > ../report/pg_drc.rpt
+icc2_shell> check_pg_connectivity > ../report/pg_connectivity.rpt
+icc2_shell> analyze_power_plan -report_track_utilization_only > ../report/track_utilization.rpt
+icc2_shell> report_utilization > ../report/utilization.rpt
+icc2_shell> report_qor > ../report/qor.rpt  ; #optional
+icc2_shell> report_timing > ../report/timing.rpt ; #optional
+icc2_shell> # ================================================ #
+icc2_shell> # =================== End_Step =================== #
+icc2_shell> # ================================================ #
+icc2_shell> write_def ../output/cv32e40p_top.def
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:20:36 2025
+****************************************
+No mismatches exist on the design.
+---------------------------------------
+Number of Written DEF Constructs
+---------------------------------------
+VERSION                        : 1
+DIVIDERCHAR                    : 1
+BUSBITCHARS                    : 1
+DESIGN                         : 1
+UNITS                          : 1
+PROPERTYDEFINITIONS            : 1
+DIEAREA                        : 1
+ROW                            : 55
+TRACKS                         : 18
+VIAS                           : 11
+COMPONENTS                     : 1457
+PINS                           : 41
+PINPROPERTIES                  : 39
+SPECIALNETS                    : 2
+NETS                           : 1501
+1
+icc2_shell> write_verilog -include {all} ../output/cv32e40p_top.v
+1
+icc2_shell> write_sdc -output ../output/cv32e40p_top.sdc
+1
+icc2_shell> save_block ;
+Information: Saving block 'SerDes.dlib:SerDes_pp.design'
+1
+icc2_shell> report_timing
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:20:45 2025
+****************************************
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U106/ZN (INVX0)                      0.09      2.16 f
+  receiver/ds/U48/Q (AND2X4)                       0.31      2.47 f
+  receiver/ds/U60/ZN (INVX0)                       0.08      2.54 r
+  receiver/ds/U49/QN (OAI22X1)                     0.37      2.91 f
+  receiver/ds/datout_reg[2]/D (SDFFARX1)           0.00      2.91 f
+  data arrival time                                          2.91
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[2]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.91
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.35
+
+
+1
+icc2_shell> report_timing -max_paths 20
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 20
+        -report_by design
+Design : system
+Version: O-2018.06-SP1
+Date   : Tue Aug 26 08:20:53 2025
+****************************************
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U106/ZN (INVX0)                      0.09      2.16 f
+  receiver/ds/U48/Q (AND2X4)                       0.31      2.47 f
+  receiver/ds/U60/ZN (INVX0)                       0.08      2.54 r
+  receiver/ds/U49/QN (OAI22X1)                     0.37      2.91 f
+  receiver/ds/datout_reg[2]/D (SDFFARX1)           0.00      2.91 f
+  data arrival time                                          2.91
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[2]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.91
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.35
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[8] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U80/ZN (INVX0)                       0.09      2.16 f
+  receiver/ds/U44/Q (AND2X4)                       0.30      2.46 f
+  receiver/ds/U61/ZN (INVX0)                       0.08      2.54 r
+  receiver/ds/U47/QN (OAI22X1)                     0.37      2.90 f
+  receiver/ds/datout_reg[8]/D (SDFFARX1)           0.00      2.90 f
+  data arrival time                                          2.90
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[8]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.90
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.36
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[4] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U106/ZN (INVX0)                      0.09      2.16 f
+  receiver/ds/U58/Q (AND3X1)                       0.27      2.43 f
+  receiver/ds/U55/ZN (INVX0)                       0.07      2.50 r
+  receiver/ds/U50/QN (OAI22X1)                     0.37      2.87 f
+  receiver/ds/datout_reg[4]/D (SDFFARX1)           0.00      2.87 f
+  data arrival time                                          2.87
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[4]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.87
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.39
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U90/ZN (INVX0)                       0.10      0.88 f
+  receiver/ds/U69/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U78/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.29 f
+  receiver/ds/U72/ZN (INVX0)                       0.09      1.38 r
+  receiver/ds/U73/ZN (INVX0)                       0.08      1.46 f
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.55 r
+  receiver/ds/U103/ZN (INVX0)                      0.10      1.66 f
+  receiver/ds/U105/ZN (INVX0)                      0.08      1.73 r
+  receiver/ds/U39/Q (AND3X1)                       0.30      2.04 r
+  receiver/ds/U51/Q (AND2X4)                       0.32      2.35 r
+  receiver/ds/U52/QN (OAI22X1)                     0.40      2.75 f
+  receiver/ds/datout_reg[1]/D (SDFFARX1)           0.00      2.75 f
+  data arrival time                                          2.75
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[1]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.75
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.51
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[5] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U90/ZN (INVX0)                       0.10      0.88 f
+  receiver/ds/U69/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U78/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.29 f
+  receiver/ds/U72/ZN (INVX0)                       0.09      1.38 r
+  receiver/ds/U73/ZN (INVX0)                       0.08      1.46 f
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.55 r
+  receiver/ds/U103/ZN (INVX0)                      0.10      1.66 f
+  receiver/ds/U105/ZN (INVX0)                      0.08      1.73 r
+  receiver/ds/U39/Q (AND3X1)                       0.30      2.04 r
+  receiver/ds/U43/Q (AND2X4)                       0.32      2.35 r
+  receiver/ds/U46/QN (OAI22X1)                     0.40      2.75 f
+  receiver/ds/datout_reg[5]/D (SDFFARX1)           0.00      2.75 f
+  data arrival time                                          2.75
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[5]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.75
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.51
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[6] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U90/ZN (INVX0)                       0.10      0.88 f
+  receiver/ds/U69/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U78/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.29 f
+  receiver/ds/U98/ZN (INVX0)                       0.07      1.36 r
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.44 f
+  receiver/ds/U115/ZN (INVX0)                      0.08      1.52 r
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.82 r
+  receiver/ds/U31/ZN (INVX0)                       0.10      1.92 f
+  receiver/ds/U117/ZN (INVX0)                      0.08      2.00 r
+  receiver/ds/U64/Q (AND3X1)                       0.31      2.31 r
+  receiver/ds/U32/QN (OAI22X1)                     0.40      2.70 f
+  receiver/ds/datout_reg[6]/D (SDFFARX1)           0.00      2.70 f
+  data arrival time                                          2.70
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[6]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.70
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.56
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/bit_count_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U90/ZN (INVX0)                       0.10      0.88 f
+  receiver/ds/U69/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U78/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.29 f
+  receiver/ds/U72/ZN (INVX0)                       0.09      1.38 r
+  receiver/ds/U73/ZN (INVX0)                       0.08      1.46 f
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.55 r
+  receiver/ds/U103/ZN (INVX0)                      0.10      1.66 f
+  receiver/ds/U104/ZN (INVX0)                      0.08      1.74 r
+  receiver/ds/U81/ZN (INVX0)                       0.08      1.82 f
+  receiver/ds/U82/ZN (INVX0)                       0.07      1.89 r
+  receiver/ds/U34/QN (NAND3X4)                     0.49      2.37 f
+  receiver/ds/U35/QN (OAI21X2)                     0.35      2.72 r
+  receiver/ds/bit_count_reg[2]/D (SDFFARX1)        0.00      2.72 r
+  data arrival time                                          2.72
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/bit_count_reg[2]/CLK (SDFFARX1)      0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.54     24.36
+  data required time                                        24.36
+  ------------------------------------------------------------------------
+  data required time                                        24.36
+  data arrival time                                         -2.72
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.64
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[7] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U90/ZN (INVX0)                       0.10      0.88 f
+  receiver/ds/U69/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U78/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.29 f
+  receiver/ds/U72/ZN (INVX0)                       0.09      1.38 r
+  receiver/ds/U73/ZN (INVX0)                       0.08      1.46 f
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.55 r
+  receiver/ds/U103/ZN (INVX0)                      0.10      1.66 f
+  receiver/ds/U104/ZN (INVX0)                      0.08      1.74 r
+  receiver/ds/U81/ZN (INVX0)                       0.08      1.82 f
+  receiver/ds/U82/ZN (INVX0)                       0.07      1.89 r
+  receiver/ds/U62/Q (AND3X1)                       0.30      2.19 r
+  receiver/ds/U65/QN (OAI22X2)                     0.42      2.61 f
+  receiver/ds/datout_reg[7]/D (SDFFARX1)           0.00      2.61 f
+  data arrival time                                          2.61
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[7]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.61
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.66
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/bit_count_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U72/ZN (INVX0)                       0.10      1.37 f
+  receiver/ds/U73/ZN (INVX0)                       0.07      1.44 r
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.53 f
+  receiver/ds/U103/ZN (INVX0)                      0.09      1.62 r
+  receiver/ds/U104/ZN (INVX0)                      0.09      1.71 f
+  receiver/ds/U81/ZN (INVX0)                       0.07      1.77 r
+  receiver/ds/U82/ZN (INVX0)                       0.08      1.85 f
+  receiver/ds/U62/Q (AND3X1)                       0.27      2.12 f
+  receiver/ds/U63/ZN (INVX0)                       0.09      2.21 r
+  receiver/ds/U116/ZN (INVX0)                      0.08      2.29 f
+  receiver/ds/U45/Q (AO21X1)                       0.18      2.47 f
+  receiver/ds/bit_count_reg[3]/D (SDFFARX1)        0.00      2.47 f
+  data arrival time                                          2.47
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/bit_count_reg[3]/CLK (SDFFARX1)      0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.65     24.25
+  data required time                                        24.25
+  ------------------------------------------------------------------------
+  data required time                                        24.25
+  data arrival time                                         -2.47
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.79
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U72/ZN (INVX0)                       0.10      1.37 f
+  receiver/ds/U73/ZN (INVX0)                       0.07      1.44 r
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.53 f
+  receiver/ds/U103/ZN (INVX0)                      0.09      1.62 r
+  receiver/ds/U105/ZN (INVX0)                      0.09      1.70 f
+  receiver/ds/U38/Q (AND2X4)                       0.31      2.01 f
+  receiver/ds/U57/ZN (INVX0)                       0.08      2.09 r
+  receiver/ds/U41/QN (OAI22X1)                     0.37      2.46 f
+  receiver/ds/datout_reg[3]/D (SDFFARX1)           0.00      2.46 f
+  data arrival time                                          2.46
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[3]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.46
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.81
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[9] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U72/ZN (INVX0)                       0.10      1.37 f
+  receiver/ds/U73/ZN (INVX0)                       0.07      1.44 r
+  receiver/ds/U119/QN (NOR2X0)                     0.09      1.53 f
+  receiver/ds/U103/ZN (INVX0)                      0.09      1.62 r
+  receiver/ds/U104/ZN (INVX0)                      0.09      1.71 f
+  receiver/ds/U40/Q (AND2X4)                       0.30      2.01 f
+  receiver/ds/U54/ZN (INVX0)                       0.08      2.08 r
+  receiver/ds/U42/QN (OAI22X1)                     0.37      2.45 f
+  receiver/ds/datout_reg[9]/D (SDFFARX1)           0.00      2.45 f
+  data arrival time                                          2.45
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[9]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.45
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.81
+
+
+
+  Startpoint: transmitter/serial/counter_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/data_out_reg (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  transmitter/serial/counter_reg[3]/CLK (SDFFARX1)
+                                                   0.00      0.00 r
+  transmitter/serial/counter_reg[3]/Q (SDFFARX1)   0.68      0.68 f
+  transmitter/serial/U63/ZN (INVX0)                0.08      0.76 r
+  transmitter/serial/U28/ZN (INVX0)                0.08      0.84 f
+  transmitter/serial/U70/ZN (INVX0)                0.08      0.92 r
+  transmitter/serial/U55/ZN (INVX0)                0.09      1.01 f
+  transmitter/serial/U56/ZN (INVX0)                0.08      1.09 r
+  transmitter/serial/U71/ZN (INVX0)                0.09      1.18 f
+  transmitter/serial/U19/Q (AND2X4)                0.31      1.48 f
+  transmitter/serial/U20/ZN (INVX0)                0.09      1.57 r
+  transmitter/serial/U21/Q (AND3X4)                0.43      2.00 r
+  transmitter/serial/U32/QN (OAI22X1)              0.42      2.43 f
+  transmitter/serial/data_out_reg/D (SDFFARX1)     0.00      2.43 f
+  data arrival time                                          2.43
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  transmitter/serial/data_out_reg/CLK (SDFFARX1)   0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.43
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.84
+
+
+
+  Startpoint: transmitter/serial/counter_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  transmitter/serial/counter_reg[3]/CLK (SDFFARX1)
+                                                   0.00      0.00 r
+  transmitter/serial/counter_reg[3]/Q (SDFFARX1)   0.65      0.65 r
+  transmitter/serial/U63/ZN (INVX0)                0.10      0.74 f
+  transmitter/serial/U28/ZN (INVX0)                0.07      0.81 r
+  transmitter/serial/U70/ZN (INVX0)                0.08      0.89 f
+  transmitter/serial/U55/ZN (INVX0)                0.08      0.97 r
+  transmitter/serial/U56/ZN (INVX0)                0.09      1.06 f
+  transmitter/serial/U71/ZN (INVX0)                0.08      1.14 r
+  transmitter/serial/U19/Q (AND2X4)                0.31      1.45 r
+  transmitter/serial/U20/ZN (INVX0)                0.10      1.55 f
+  transmitter/serial/U21/Q (AND3X4)                0.40      1.95 f
+  transmitter/serial/U52/ZN (INVX0)                0.10      2.05 r
+  transmitter/serial/U75/QN (OAI22X2)              0.36      2.41 f
+  transmitter/serial/counter_reg[0]/D (SDFFARX1)   0.00      2.41 f
+  data arrival time                                          2.41
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  transmitter/serial/counter_reg[0]/CLK (SDFFARX1)
+                                                   0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.41
+  ------------------------------------------------------------------------
+  slack (MET)                                               21.85
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/bit_count_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.66      0.66 r
+  receiver/ds/U88/ZN (INVX0)                       0.11      0.76 f
+  receiver/ds/U90/ZN (INVX0)                       0.08      0.85 r
+  receiver/ds/U69/ZN (INVX0)                       0.08      0.93 f
+  receiver/ds/U78/ZN (INVX0)                       0.07      1.00 r
+  receiver/ds/U118/Q (OA21X1)                      0.27      1.27 r
+  receiver/ds/U98/ZN (INVX0)                       0.08      1.35 f
+  receiver/ds/U99/ZN (INVX0)                       0.08      1.43 r
+  receiver/ds/U115/ZN (INVX0)                      0.09      1.52 f
+  receiver/ds/U30/Q (AND2X4)                       0.30      1.81 f
+  receiver/ds/U31/ZN (INVX0)                       0.09      1.90 r
+  receiver/ds/U117/ZN (INVX0)                      0.09      1.99 f
+  receiver/ds/U79/ZN (INVX0)                       0.08      2.07 r
+  receiver/ds/U80/ZN (INVX0)                       0.09      2.16 f
+  receiver/ds/bit_count_reg[0]/D (SDFFARX1)        0.00      2.16 f
+  data arrival time                                          2.16
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/bit_count_reg[0]/CLK (SDFFARX1)      0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.16
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.10
+
+
+
+  Startpoint: transmitter/serial/counter_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[2] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  transmitter/serial/counter_reg[0]/CLK (SDFFARX1)
+                                                   0.00      0.00 r
+  transmitter/serial/counter_reg[0]/Q (SDFFARX1)   0.68      0.68 f
+  transmitter/serial/U58/ZN (INVX0)                0.09      0.77 r
+  transmitter/serial/U67/ZN (INVX0)                0.09      0.86 f
+  transmitter/serial/U36/ZN (INVX0)                0.07      0.93 r
+  transmitter/serial/U38/ZN (INVX0)                0.08      1.01 f
+  transmitter/serial/U22/Q (AND4X4)                0.44      1.45 f
+  transmitter/serial/U29/ZN (INVX0)                0.10      1.55 r
+  transmitter/serial/U33/QN (OAI222X1)             0.59      2.13 f
+  transmitter/serial/counter_reg[2]/D (SDFFARX1)   0.00      2.13 f
+  data arrival time                                          2.13
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  transmitter/serial/counter_reg[2]/CLK (SDFFARX1)
+                                                   0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -2.13
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.12
+
+
+
+  Startpoint: transmitter/serial/counter_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  transmitter/serial/counter_reg[3]/CLK (SDFFARX1)
+                                                   0.00      0.00 r
+  transmitter/serial/counter_reg[3]/Q (SDFFARX1)   0.65      0.65 r
+  transmitter/serial/U63/ZN (INVX0)                0.10      0.74 f
+  transmitter/serial/U28/ZN (INVX0)                0.07      0.81 r
+  transmitter/serial/U70/ZN (INVX0)                0.08      0.89 f
+  transmitter/serial/U55/ZN (INVX0)                0.08      0.97 r
+  transmitter/serial/U56/ZN (INVX0)                0.09      1.06 f
+  transmitter/serial/U71/ZN (INVX0)                0.08      1.14 r
+  transmitter/serial/U19/Q (AND2X4)                0.31      1.45 r
+  transmitter/serial/U20/ZN (INVX0)                0.10      1.55 f
+  transmitter/serial/U24/ZN (INVX0)                0.07      1.62 r
+  transmitter/serial/U39/ZN (INVX0)                0.07      1.69 f
+  transmitter/serial/U37/QN (NAND4X0)              0.10      1.79 r
+  transmitter/serial/U23/QN (OAI21X2)              0.32      2.11 f
+  transmitter/serial/counter_reg[1]/D (SDFFARX1)   0.00      2.11 f
+  data arrival time                                          2.11
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  transmitter/serial/counter_reg[1]/CLK (SDFFARX1)
+                                                   0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.63     24.27
+  data required time                                        24.27
+  ------------------------------------------------------------------------
+  data required time                                        24.27
+  data arrival time                                         -2.11
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.16
+
+
+
+  Startpoint: transmitter/serial/counter_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: transmitter/serial/counter_reg[3] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  transmitter/serial/counter_reg[0]/CLK (SDFFARX1)
+                                                   0.00      0.00 r
+  transmitter/serial/counter_reg[0]/Q (SDFFARX1)   0.68      0.68 f
+  transmitter/serial/U58/ZN (INVX0)                0.09      0.77 r
+  transmitter/serial/U67/ZN (INVX0)                0.09      0.86 f
+  transmitter/serial/U36/ZN (INVX0)                0.07      0.93 r
+  transmitter/serial/U38/ZN (INVX0)                0.08      1.01 f
+  transmitter/serial/U22/Q (AND4X4)                0.44      1.45 f
+  transmitter/serial/U29/ZN (INVX0)                0.10      1.55 r
+  transmitter/serial/U78/QN (OAI22X2)              0.41      1.96 f
+  transmitter/serial/counter_reg[3]/D (SDFFARX1)   0.00      1.96 f
+  data arrival time                                          1.96
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  transmitter/serial/counter_reg[3]/CLK (SDFFARX1)
+                                                   0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -1.96
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.30
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/datout_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[0]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[0]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U76/ZN (INVX0)                       0.09      0.77 r
+  receiver/ds/U67/Q (AND4X4)                       0.53      1.31 r
+  receiver/ds/U53/QN (OAI22X1)                     0.43      1.74 f
+  receiver/ds/datout_reg[0]/D (SDFFARX1)           0.00      1.74 f
+  data arrival time                                          1.74
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/datout_reg[0]/CLK (SDFFARX1)         0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -1.74
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.52
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[1]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/U88/ZN (INVX0)                       0.09      0.78 r
+  receiver/ds/U89/ZN (INVX0)                       0.09      0.87 f
+  receiver/ds/U68/ZN (INVX0)                       0.07      0.94 r
+  receiver/ds/U77/ZN (INVX0)                       0.08      1.02 f
+  receiver/ds/U36/Q (XNOR2X2)                      0.38      1.39 f
+  receiver/ds/U37/ZN (INVX0)                       0.08      1.47 r
+  receiver/ds/U122/QN (NOR2X0)                     0.10      1.57 f
+  receiver/ds/bit_count_reg[1]/D (SDFFARX1)        0.00      1.57 f
+  data arrival time                                          1.57
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.64     24.26
+  data required time                                        24.26
+  ------------------------------------------------------------------------
+  data required time                                        24.26
+  data arrival time                                         -1.57
+  ------------------------------------------------------------------------
+  slack (MET)                                               22.68
+
+
+
+  Startpoint: receiver/ds/bit_count_reg[0] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Endpoint: receiver/ds/bit_count_reg[1] (rising edge-triggered flip-flop clocked by fun_sclk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_sclk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_sclk (rise edge)                       0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  receiver/ds/bit_count_reg[0]/CLK (SDFFARX1)      0.00      0.00 r
+  receiver/ds/bit_count_reg[0]/Q (SDFFARX1)        0.69      0.69 f
+  receiver/ds/bit_count_reg[1]/SI (SDFFARX1)       0.00      0.69 f
+  data arrival time                                          0.69
+
+  clock fun_sclk (rise edge)                      25.00     25.00
+  clock network delay (ideal)                      0.00     25.00
+  receiver/ds/bit_count_reg[1]/CLK (SDFFARX1)      0.00     25.00 r
+  clock uncertainty                               -0.10     24.90
+  library setup time                              -0.67     24.23
+  data required time                                        24.23
+  ------------------------------------------------------------------------
+  data required time                                        24.23
+  data arrival time                                         -0.69
+  ------------------------------------------------------------------------
+  slack (MET)                                               23.54
+
+
+1
+icc2_shell> exit
+Maximum memory usage for this session: 262.65 MB
+CPU usage for this session:     27 seconds (  0.01 hours)
+Elapsed time for this session:    406 seconds (  0.11 hours)
+Thank you for using IC Compiler II.
+
